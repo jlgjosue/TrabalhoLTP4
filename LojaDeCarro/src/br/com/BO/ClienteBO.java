@@ -32,7 +32,7 @@ public class ClienteBO {
 	}
 
 	public void alterarCliente(Cliente cliente) throws  SQLException {
-		dao.alterarProduto(cliente);
+		dao.alterarCliente(cliente);
 		
 	}
 

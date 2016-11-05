@@ -75,6 +75,7 @@ public class ClienteDAO {
 			PreparedStatement ps = con.prepareStatement("DELETE FROM cliente WHERE id = ? ");
 			ps.setInt(1, cliente.getId());
 			ps.execute();
+			ps.close();
 			con.close();
 
 		} catch (SQLException e) {
@@ -111,7 +112,7 @@ public class ClienteDAO {
 
 	}
 
-	public static void alterarProduto(Cliente cliente) throws SQLException {
+	public static void  alterarCliente(Cliente cliente) throws SQLException {
 		try {
 			Connection con = Conexao.getConexao();
 
