@@ -9,7 +9,7 @@
 <title>Realizar venda!!!</title>
 </head>
 <body>
-<!-- gvghghf -->
+<!-- gvghghf nn-->
 	<center>
 	<c:choose>	
 	<c:when test="${clientes.size() == 0 and carros.size()>0}">
