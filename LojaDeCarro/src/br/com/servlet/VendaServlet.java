@@ -104,7 +104,7 @@ public class VendaServlet extends HttpServlet {
 			}
 		} else {
 
-			resp.sendRedirect("../Mercado/index.jsp");
+			resp.sendRedirect("../LojaDeCarro/index.jsp");
 
 		}
 	}

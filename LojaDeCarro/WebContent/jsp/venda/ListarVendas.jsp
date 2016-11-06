@@ -8,6 +8,11 @@
 <title>Lista das vendas realizadas</title>
 </head>
 <body>
+
+	<c:if test="${user==null && senha==null}">
+    	<c:redirect url="../../LojaDeCarro/index.jsp"/>
+    </c:if>
+    
 	<table border="1">
 	
 		<tr>

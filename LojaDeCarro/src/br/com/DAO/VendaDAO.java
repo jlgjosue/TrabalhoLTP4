@@ -43,20 +43,28 @@ public class VendaDAO {
 		try {
 			Connection con = Conexao.getConexao();
 			Venda venda = new Venda();
+			Cliente cliente = null;
+			Carro carro = null;
 			
 
 			PreparedStatement query = con.prepareStatement(
-					"SELECT cli.id , car.id, ven.descricao from venda ven join cliente cli on cli.id = ven.Cliente_id  JOIN carro car on ven.carro_id = car.id");
+					"SELECT cli.nome, cli.email, cli.sexo, car.nome, car.preco, ven.descricao from venda ven join cliente cli on cli.id = ven.Cliente_id  JOIN carro car on ven.carro_id = car.id");
 			ResultSet result = query.executeQuery();
 
 			while (result.next()) {
 
 				venda = new Venda();			
 
-				venda.setCliente(ClienteDAO.consultarPorId(result.getInt("cli.id")));				
+				cliente = venda.getCliente();
+				cliente.setNome(result.getString("cli.nome"));
+				cliente.setEmail(result.getString("cli.email"));
+				cliente.setSexo(result.getString("cli.sexo").charAt(0));				
+				venda.setCliente(cliente);
 				
-
-				venda.setCarro(CarroDAO.consultarPorId(result.getInt("car.id")));
+				carro = venda.getCarro();
+				carro.setNome(result.getString("car.nome"));
+				carro.setPreco(result.getDouble("car.preco"));
+				venda.setCarro(carro);	
 				
 				
 				venda.setDescricao(result.getString("ven.descricao"));
