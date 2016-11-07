@@ -12,7 +12,8 @@
 	<c:if test="${user==null && senha==null}">
     	<c:redirect url="../../LojaDeCarro/index.jsp"/>
     </c:if>
-    
+ <c:choose>  
+ <c:when test="${vendas.size()>0}">
 	<table border="1">
 	
 		<tr>
@@ -38,5 +39,12 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</c:when>
+	<c:otherwise>
+	<h1> Nao temos nenhuma venda cadastrada no sistema!</h1>
+	<p><input type="button" onclick="location='/LojaDeCarro/venda?acao=Vender'" value="Realizar nova venda"></a><br/>
+	</c:otherwise>
+</c:choose>
+<p><input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
 </body>
 </html>

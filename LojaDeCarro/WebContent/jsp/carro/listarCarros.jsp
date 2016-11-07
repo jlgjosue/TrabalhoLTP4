@@ -43,7 +43,7 @@
 
 <c:otherwise>
 	<h1>Nenhum carro no sistema!</h1>
-	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastro.jsp'" value="Cadastar novo produto"><br/>
+	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro!"><br/>
 </c:otherwise>
 </c:choose>
 	<p><input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>

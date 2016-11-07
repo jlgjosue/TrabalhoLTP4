@@ -14,31 +14,29 @@
     </c:if>
 
 	<center>
-<!-- 	escolha -->
+
 	<c:choose>	
-<!-- 	caso a lista de clientes esteja vasia, aparece somete a mesagem de lista vasia e o botão de cadastro -->
-	<c:when test="${clientes.size() == 0 and carros.size()>0}">
+	<c:when test="${clientes.size()<1 and carros.size()>0}">
 	
 	<h1> Não exite nenhum cliente cadastrado!</h1>
 	<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
 	</c:when>
 
-<!-- 	caso a lista de carros esteja vasia, aparece somete a mesagem de lista vasia e o botão de cadastro -->
-	<c:when test="${clientes.size() > 0 and carros.size()== 0}">
+	<c:when test="${clientes.size()>0 and carros.size()<1}">
 	
 	<h1>Nenhum  carro no sistema!</h1>
-	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastro.jsp'" value="Cadastar novo produto"><br/>
+	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro"><br/>
 	</c:when>	
 	
-<!-- 	caso as listas estejam vasias, aparece a mensagem de erro e os botões de cadastro. -->
-	<c:when test="${clientes.size() == 0 and carros.size() == 0}">	
+	
+	<c:when test="${clientes.size()<1 and carros.size()<1}">	
 	
 		<h1>Não temos nenhum produto ou carro cadastrados no sistema!</h1>
 		<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
-		<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastro.jsp'" value="Cadastar novo produto"><br/>
+		<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro"><br/>
 	</c:when>
-	
-<!-- 	senão  -->	
+
+
 	<c:otherwise>
 		<form action="/LojaDeCarro/venda" method="post">
 			<p>	<a> Escolhar um cliente</a>	</p>
@@ -69,6 +67,7 @@
 		</form>
 </c:otherwise>
 </c:choose>
+<p><input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
 	</center>
 </body>
 </html>

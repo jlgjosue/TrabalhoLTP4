@@ -44,7 +44,8 @@ public class VendaServlet extends HttpServlet {
 					
 					List<Carro> carros;
 					carros = carroBO.listarTodos();
-					resp.sendRedirect("/LojaDeCarro/venda?acao=Listar");
+					req.setAttribute("carros", carros);
+					req.getRequestDispatcher("jsp/venda/RealizarVenda.jsp").forward(req, resp);
 
 				
 
