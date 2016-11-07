@@ -16,7 +16,7 @@
 
 <tr>
 	<h2>Carro</h2>
-	<a href="../../../LojaDeCarro/jsp/carro/cadastro.jsp">Cadastro de carro</a><br/>
+	<a href="../../../LojaDeCarro/jsp/carro/cadastroCarro.jsp">Cadastro de carro</a><br/>
 	<a href="/LojaDeCarro/carro?acao=Listar"> Lista dos carros</a>
 	
 	<h2>Cliente</h2>
@@ -28,7 +28,7 @@
 	<a href="/LojaDeCarro/venda?acao=Listar"> Listar as vendas</a>
 	</tr>
 	
-	<p><input type="button" onclick="location='../../../../LojaDeCarro/logaut?acao=Sair'" value="sair"><br/>
+	<p><input type="button" onclick="location='../../../../LojaDeCarro/logaut?acao=Sair'" value="Sair"><br/>
 </center>
 
 

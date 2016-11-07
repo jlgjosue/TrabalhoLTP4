@@ -18,8 +18,8 @@ public class CarroServlet extends HttpServlet {
 	private String acao;
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException  {
-		
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		acao = req.getParameter("acao");
 		String msg = null;
 		Carro carro = new Carro();
@@ -33,26 +33,17 @@ public class CarroServlet extends HttpServlet {
 					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
 					carro.setFornecedor(req.getParameter("fornecedor"));
 
-					boolean verificacao = carroBO.cadastro(carro);
+					carroBO.cadastro(carro);
+					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
 
-					if (verificacao) {
-						msg = "O novo carro " + carro.getNome() + " foi cadastrado.";
-
-					} else {
-						msg = "O novo carro " + carro.getNome() + " não foi cadastrado.";
-
-					}
-
-				
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 					msg = "Erro ao cadastrar um novo carro." + e;
-					
-				} finally {
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
+					req.setAttribute("origem", "car");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
 				}
 
 			} else if (acao.equals("Listar")) {
@@ -62,30 +53,29 @@ public class CarroServlet extends HttpServlet {
 					req.setAttribute("Lista", Lista);
 					req.getRequestDispatcher("jsp/carro/listarCarros.jsp").forward(req, resp);
 
-				
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 					msg = "Erro ao listar os carros cadastrados.\n" + e;
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
+					req.setAttribute("origem", "car");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				}
 
 			} else if (acao.equals("ConsultarCarro")) {
 				try {
-					carro = 	carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
+					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
 					req.setAttribute("carro", carro);
 					req.getRequestDispatcher("jsp/carro/alterarCarro.jsp").forward(req, resp);
-
-				
 
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 					msg = "Erro ao culsutar o carro que iria se alterado!\n" + e;
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
+					req.setAttribute("origem", "car");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				}
 			} else if (acao.equals("Alterar")) {
@@ -96,19 +86,17 @@ public class CarroServlet extends HttpServlet {
 					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
 					carro.setFornecedor(req.getParameter("fornecedor"));
 					carroBO.alterarCarro(carro);
-					msg = "O novo carro " + carro.getNome() + " foi alterado com suscesso!!!.";
 
-				
+					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
 
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 					msg = "Erro ao alterar o carro!\n" + e;
-
-				} finally {
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
+					req.setAttribute("origem", "car");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
 				}
 
 			} else if (acao.equals("Excluir")) {
@@ -116,28 +104,28 @@ public class CarroServlet extends HttpServlet {
 
 					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
 					carroBO.excluirCarro(carro);
-					msg = "O  carro " + carro.getNome() + " foi excluido com suscesso!!!.";
-
-				
+					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
 
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 					msg = "Erro ao excluir o carro!\n" + e;
-
-				} finally {
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
+					req.setAttribute("origem", "car");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
 				}
-			}else{
-				msg ="Erro na Acao...";
+
+			} else {
+				msg = "Erro na Acao...";
 				req.setAttribute("msg", msg);
 				req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 			}
 
-		} else {
-			resp.sendRedirect("../Mercado/index.jsp");
+		} else
+
+		{
+			resp.sendRedirect("../LojaDeCarro/index.jsp");
 		}
 	}
 

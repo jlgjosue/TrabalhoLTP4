@@ -48,13 +48,16 @@ public class VendaDAO {
 			
 
 			PreparedStatement query = con.prepareStatement(
-					"SELECT cli.nome, cli.email, cli.sexo, car.nome, car.preco, ven.descricao from venda ven join cliente cli on cli.id = ven.Cliente_id  JOIN carro car on ven.carro_id = car.id");
+					"SELECT ven.idVenda ,cli.nome, cli.email, cli.sexo, car.nome, car.preco, ven.descricao FROM venda ven "
+					+ "JOIN cliente cli ON cli.id = ven.Cliente_id  "
+					+ "JOIN carro car ON ven.carro_id = car.id ORDER BY cli.nome, car.nome");
 			ResultSet result = query.executeQuery();
 
 			while (result.next()) {
 
 				venda = new Venda();			
-
+				venda.setIdVenda(result.getInt("ven.idVenda"));
+				
 				cliente = venda.getCliente();
 				cliente.setNome(result.getString("cli.nome"));
 				cliente.setEmail(result.getString("cli.email"));
@@ -81,6 +84,23 @@ public class VendaDAO {
 		}
 
 		return vendas;
+	}
+
+	public void excluir(int idVenda) {
+		try{
+			
+			Connection con = Conexao.getConexao();
+
+			PreparedStatement ps = con.prepareStatement("DELETE FROM venda WHERE idVenda = ? ");
+			ps.setInt(1, idVenda);
+			ps.execute();
+			ps.close();
+			con.close();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

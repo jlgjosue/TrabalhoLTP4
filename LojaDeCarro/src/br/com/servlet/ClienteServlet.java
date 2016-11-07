@@ -35,20 +35,18 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setTelefone(req.getParameter("telefone"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
 					clienteBO.cadastar(cliente);
-					msg = "Cliente " + cliente.getNome() + " cadastrado com suceso!!!";
+					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 
 				
 
 				} catch (SQLException e) {
 					e.printStackTrace();
 					msg = "Erro ao inserir um novo ususario!!\n" + e;
-
-				
-				}finally {
-				
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);
+					req.setAttribute("origem", "cliente");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
+				
 				}
 			}
 			if (acao.equals("Listar")) {
@@ -66,7 +64,8 @@ public class ClienteServlet extends HttpServlet {
 					msg = "	Erro ao listar os clientes disponíveis!\n" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);
+					req.setAttribute("origem", "cliente");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 
 			}
@@ -74,19 +73,18 @@ public class ClienteServlet extends HttpServlet {
 				try {
 					cliente = clienteBO.consultarPorId(Integer.parseInt(req.getParameter("id")));
 					clienteBO.excluirCliente(cliente);
-					msg = "Cliente " + cliente.getNome() + " foi excluido com sucesso!";
+					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 
 				
 
 				} catch (SQLException e) {
 					e.printStackTrace();
 					msg = "Erro ao excluir o cliente!!\n" + e;
-
-				} finally {
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);
-				}
+					req.setAttribute("origem", "cliente");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
+				} 
 
 			}
 			if (acao.equals("Consultar")) {
@@ -101,12 +99,11 @@ public class ClienteServlet extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 					msg = "Erro ao consultar o cliente a ser alterado\n" + e;
-
-				} finally {
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);
-				}
+					req.setAttribute("origem", "cliente");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
+				} 
 
 			}
 			if (acao.equals("Alterar")) {
@@ -118,7 +115,7 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setTelefone(req.getParameter("telefone"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
 					clienteBO.alterarCliente(cliente);
-					msg = "Cliente " + cliente.getNome() + " alterado com suceso!!!";
+					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 					
 				
 
@@ -126,12 +123,11 @@ public class ClienteServlet extends HttpServlet {
 					
 					e.printStackTrace();
 					msg = "Erro ao alterar o cliente!\n" + e;
-
-				} finally {
-
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/cliente.jsp").forward(req, resp);
-				}
+					req.setAttribute("origem", "cliente");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+
+				} 
 
 			}
 

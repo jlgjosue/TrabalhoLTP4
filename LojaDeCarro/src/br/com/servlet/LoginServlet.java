@@ -10,12 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.BO.LoginBO;
 
 public class LoginServlet extends HttpServlet {
-	private String acao;
+	private String acao ;
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		acao = req.getParameter("acao");
+		if(req.getParameter("acao") != null){
+		
+			acao = req.getParameter("acao");
+		
+		}else{
+			
+			resp.sendRedirect("../LojaDeCarro/index.jsp");
+		}
 		
 		if (acao.equals("Logar")) {
 			String user = req.getParameter("user");
@@ -39,9 +50,5 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
-	}
 
 }

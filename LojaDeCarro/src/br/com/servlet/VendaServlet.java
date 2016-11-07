@@ -44,9 +44,7 @@ public class VendaServlet extends HttpServlet {
 					
 					List<Carro> carros;
 					carros = carroBO.listarTodos();
-					req.setAttribute("carros", carros);
-					
-					req.getRequestDispatcher("jsp/venda/RealizarVenda.jsp").forward(req, resp);
+					resp.sendRedirect("/LojaDeCarro/venda?acao=Listar");
 
 				
 
@@ -55,7 +53,8 @@ public class VendaServlet extends HttpServlet {
 					msg = "	Erro ao listar os clientes ou produtos disponíveis!" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
+					req.setAttribute("origem", "venda");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 				
 			}else if(acao.equals("CadastrarVenda")){
@@ -69,9 +68,7 @@ public class VendaServlet extends HttpServlet {
 					venda.setCarro(carro);
 					vendaBO.cadastrar(venda);
 					
-					msg = "nava venda cadastrada com susesso!";
-					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
+					resp.sendRedirect("/LojaDeCarro/venda?acao=Listar");
 				
 				
 
@@ -80,13 +77,13 @@ public class VendaServlet extends HttpServlet {
 					msg = "	Erro ao cadastrar a nova venda!\n" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
+					req.setAttribute("origem", "venda");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 				
 			} else if(acao.equals("Listar")){
 				try {
-					List<Venda> vendas = vendaBO.listar();
-				
+					List<Venda> vendas = vendaBO.listar();	
 					
 					
 					req.setAttribute("vendas", vendas);
@@ -97,10 +94,15 @@ public class VendaServlet extends HttpServlet {
 					msg = "	Erro ao listar as vendas!" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/resultado/venda.jsp").forward(req, resp);
-				}catch(Exception e){
-					e.printStackTrace();
+					req.setAttribute("origem", "venda");
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
+			}else if(acao.equals("Excluir")) {
+			
+				int idVenda = Integer.parseInt(req.getParameter("id"));
+				vendaBO.excluir(idVenda);
+				resp.sendRedirect("/LojaDeCarro/venda?acao=Listar");
+				
 			}
 		} else {
 

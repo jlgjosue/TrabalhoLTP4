@@ -5,6 +5,7 @@ public class Venda {
 	 private Cliente cliente = new Cliente();
 	 private Carro carro = new Carro();
 	 private String descricao;
+	
 	 
 	public Cliente getCliente() {
 		return cliente;

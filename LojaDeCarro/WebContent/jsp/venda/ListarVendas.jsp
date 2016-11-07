@@ -22,6 +22,7 @@
 			<td>Carro</td>
 			<td>Preço</td>
 			<td>Descrição da venda</td>
+			<td></td>
 		</tr>
 		
 		<c:forEach var="v" items="${vendas}">
@@ -32,6 +33,7 @@
 				<td>${v.carro["nome"]}</td>
 				<td>${v.carro["preco"]}</td>
 				<td>${v.descricao}</td>
+				<td><a href="/LojaDeCarro/venda?acao=Excluir&id=${v.idVenda}"/>Excluir </td>
 				
 			</tr>
 		</c:forEach>

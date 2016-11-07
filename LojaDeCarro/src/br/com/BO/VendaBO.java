@@ -18,6 +18,11 @@ public class VendaBO {
 		
 		return dao.listarTodas();
 	}
+
+	public void excluir(int idVenda) {
+		dao.excluir(idVenda);
+		
+	}
 	
 	
 
