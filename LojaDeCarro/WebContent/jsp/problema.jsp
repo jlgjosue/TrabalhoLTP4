@@ -31,7 +31,7 @@
 		<<p><input type="button" onclick="location='../../../LojaDeCarro/jsp/menuPrincipal.jsp'" value="Menu principal"><br/>
 		  </c:when>
 		<c:otherwise>
-
+			<c:out value="Um novo problema encontrado!!! :("/>
 		</c:otherwise>
 	</c:choose>
 
