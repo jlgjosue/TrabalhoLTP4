@@ -6,11 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>login do usuario</title>
 </head>
-<body background="../LojaDeCarro/imagens/img.jpg">
 <center>
 
 <form action="../LojaDeCarro/login" method="post" >
-<font color="#FFFAFA"> 
+
 <h1>Bem vindo!!!</h1>
 	<input type="hidden" name="acao" value="Logar"/>
 	<p><td> Usuario: <input type="text" name="user" /></td>

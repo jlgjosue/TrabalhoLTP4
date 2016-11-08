@@ -12,7 +12,7 @@
 	
 
 	<center>
-
+		<h3><c:out value=" ${usuario} escolha para quem vender, qual carro vender e uma breve descrição da venda!"/></h3>
 	<c:choose>	
 	<c:when test="${clientes.size()<1 and carros.size()>0}">
 	

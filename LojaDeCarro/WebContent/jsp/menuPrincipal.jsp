@@ -8,9 +8,9 @@
 <title>Menu principal do sistema</title>
 </head>
 <body >
-	
 
 <center>
+	<h1><c:out value="Bem vindo ao sistema ${usuario} !!!" /></h1>
 
 <tr>
 	<h2>Carro</h2>
@@ -26,7 +26,7 @@
 	<a href="/LojaDeCarro/venda?acao=Listar"> Listar as vendas</a>
 	</tr>
 	
-	<p><input type="button" onclick="location='../../../../LojaDeCarro/logaut?acao=Sair'" value="Sair"><br/>
+	<p><input type="button" onclick="location='../../../../LojaDeCarro/login?acao=Sair'" value="Sair"><br/>
 </center>
 
 
