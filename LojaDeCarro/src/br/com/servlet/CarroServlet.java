@@ -25,8 +25,8 @@ public class CarroServlet extends HttpServlet {
 		Carro carro = new Carro();
 		CarroBO carroBO = new CarroBO();
 
-		HttpSession session = req.getSession();
-		if ((session.getAttribute("user") != null && session.getAttribute("senha") != null)) {
+		
+		
 			if (acao.equals("inserir")) {
 				try {
 					carro.setNome(req.getParameter("nome"));
@@ -122,11 +122,7 @@ public class CarroServlet extends HttpServlet {
 				req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 			}
 
-		} else
-
-		{
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-		}
+		
 	}
 
 	@Override

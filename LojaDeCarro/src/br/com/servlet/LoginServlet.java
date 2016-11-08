@@ -19,14 +19,11 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(req.getParameter("acao") != null){
+	
 		
 			acao = req.getParameter("acao");
 		
-		}else{
-			
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-		}
+		
 		
 		if (acao.equals("Logar")) {
 			String user = req.getParameter("user");

@@ -8,9 +8,7 @@
 <title>Cadastro de cliente</title>
 </head>
 <body>
-	<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
-    </c:if>
+	
 <center>
 <form action="/LojaDeCarro/cliente" method="post">
 	<input type="hidden" name="acao" value="inserir" />

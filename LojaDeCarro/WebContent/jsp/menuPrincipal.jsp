@@ -8,9 +8,7 @@
 <title>Menu principal do sistema</title>
 </head>
 <body >
-	<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../LojaDeCarro/index.jsp"/>
-    </c:if>
+	
 
 <center>
 

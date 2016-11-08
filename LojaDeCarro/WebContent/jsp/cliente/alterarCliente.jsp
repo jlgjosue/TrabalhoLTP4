@@ -8,9 +8,7 @@
 <title>Alterar produto!!!</title>
 </head>
 <body>
-<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../Mercado/index.jsp"/>
-    </c:if>
+
 <center>
 <c:set var="cli" value="${cliente}"/>
 <form action="/LojaDeCarro/cliente" method="post">

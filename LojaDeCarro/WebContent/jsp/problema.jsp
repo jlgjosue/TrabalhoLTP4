@@ -9,9 +9,7 @@
 <title>Pagina de erro</title>
 </head>
 <body>
-	<c:if test="${user==null && senha==null}">
-		<c:redirect url="../../../LojaDeCarro/index.jsp" />
-	</c:if>
+	
 	<c:choose>
 		<c:when test="${origem eq 'car' }">
 	

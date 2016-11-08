@@ -10,9 +10,7 @@
 <body>
 
     
-   <c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
-    </c:if>
+   
 <c:set var="car" value="${carro}" />
 <form action="/LojaDeCarro/carro" method="post">
 

@@ -8,9 +8,7 @@
 <title>Lista de CLiente</title>
 </head>
 <body>
-<c:if test="${user==null && senha==null}">
-    	<c:redirect url="../../../LojaDeCarro/index.jsp"/>
-    </c:if>
+
 <center>
 <c:choose>
 <c:when test="${clientes.size()>0}">

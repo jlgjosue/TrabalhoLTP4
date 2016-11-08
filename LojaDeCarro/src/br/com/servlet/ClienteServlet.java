@@ -24,8 +24,7 @@ public class ClienteServlet extends HttpServlet {
 		ClienteBO clienteBO = new ClienteBO();
 		String msg = null;
 
-		HttpSession session = req.getSession();
-		if ((session.getAttribute("user") != null && session.getAttribute("senha") != null)) {
+		
 
 			if (acao.equals("inserir")) {
 				try {
@@ -131,11 +130,7 @@ public class ClienteServlet extends HttpServlet {
 
 			}
 
-		} else {
-			
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-			
-		}
+		
 
 	}
 

@@ -15,7 +15,7 @@ public class logautServlet extends HttpServlet{
 		acao = req.getParameter("acao");
 		
 		HttpSession session = req.getSession();
-		if ((session.getAttribute("user") != null && session.getAttribute("senha") != null)) {
+	
 			if(acao.equals("Sair")){
 				
 				session.invalidate();
@@ -26,11 +26,7 @@ public class logautServlet extends HttpServlet{
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
 			
-		} else {
-			System.out.println("-Erroou!!!");
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-			
-		}
+		
 	
 	}
 	

@@ -23,7 +23,6 @@ public class VendaServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		acao = req.getParameter("acao");
-		HttpSession session = req.getSession();
 		String msg = null;
 		ClienteBO clienteBO = new ClienteBO();
 		CarroBO carroBO = new CarroBO();
@@ -32,7 +31,7 @@ public class VendaServlet extends HttpServlet {
 		Cliente cliente = new Cliente();
 		Carro carro = new Carro();
 		
-		if ((session.getAttribute("user") != null && session.getAttribute("senha") != null)) {
+		
 			
 			if(acao.equals("Vender")){
 
@@ -105,11 +104,7 @@ public class VendaServlet extends HttpServlet {
 				resp.sendRedirect("/LojaDeCarro/venda?acao=Listar");
 				
 			}
-		} else {
-
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-
-		}
+		
 	}
 
 	@Override
