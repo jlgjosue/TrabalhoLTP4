@@ -119,6 +119,7 @@ public class CarroServlet extends HttpServlet {
 			} else {
 				msg = "Erro na Acao...";
 				req.setAttribute("msg", msg);
+				req.setAttribute("origem", "car");
 				req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
 			}
 
