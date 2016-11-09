@@ -46,7 +46,7 @@
 	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro!"><br/>
 </c:otherwise>
 </c:choose>
-	<p><input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
+	 <c:import url="../comum/opcaoMenuPrincipal.jsp" />
 </center>
 </body>
 </html>

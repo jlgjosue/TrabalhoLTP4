@@ -14,11 +14,11 @@
 
 <tr>
 	<h2>Carro</h2>
-	<a href="../../../LojaDeCarro/jsp/carro/cadastroCarro.jsp">Cadastro de carro</a><br/>
+	<a href="/LojaDeCarro/jsp/carro/cadastroCarro.jsp">Cadastro de carro</a><br/>
 	<a href="/LojaDeCarro/carro?acao=Listar"> Lista dos carros</a>
 	
 	<h2>Cliente</h2>
-	<a	href="../../../LojaDeCarro/jsp/cliente/cadastroCliente.jsp">Cadastro de cliente</a><br/>
+	<a	href="/LojaDeCarro/jsp/cliente/cadastroCliente.jsp">Cadastro de cliente</a><br/>
 	<a href="/LojaDeCarro/cliente?acao=Listar">Lista de clientes</a>
 	
 	<h2>Venda</h2>
@@ -26,7 +26,7 @@
 	<a href="/LojaDeCarro/venda?acao=Listar"> Listar as vendas</a>
 	</tr>
 	
-	<p><input type="button" onclick="location='../../../../LojaDeCarro/login?acao=Sair'" value="Sair"><br/>
+	<p><input type="button" onclick="location='/LojaDeCarro/login?acao=Sair'" value="Sair"><br/>
 </center>
 
 

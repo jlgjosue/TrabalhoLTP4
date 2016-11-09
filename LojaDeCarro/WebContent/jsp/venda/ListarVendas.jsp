@@ -43,7 +43,7 @@
 	<p><input type="button" onclick="location='/LojaDeCarro/venda?acao=Vender'" value="Realizar nova venda"></a><br/>
 	</c:otherwise>
 </c:choose>
-<p><input type="button" onclick="location='/LojaDeCarro/jsp/menuPrincipal.jsp'" value="Voltar ao menu principal"><br/>
+<c:import url="../comum/opcaoMenuPrincipal.jsp" />
 </center>
 </body>
 </html>

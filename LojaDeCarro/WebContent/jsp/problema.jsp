@@ -26,11 +26,11 @@
 		  
 		  <p><c:out value="${msg}"></c:out><br />
 		
-		<p><input type="button" onclick="location='../../../LojaDeCarro/jsp/menuPrincipal.jsp'" value="Menu principal"><br/>
+		 <c:import url="../comum/opcaoMenuPrincipal.jsp" />
 		  </c:when>
 		<c:otherwise>
 			<c:out value="Um novo problema encontrado!!! :("/>
-			<p><input type="button" onclick="location='../../../LojaDeCarro/jsp/menuPrincipal.jsp'" value="Menu principal"><br/>
+			 <c:import url="../comum/opcaoMenuPrincipal.jsp" />
 		</c:otherwise>
 	</c:choose>
 
