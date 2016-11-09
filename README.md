@@ -1,5 +1,5 @@
 # TrabalhoLTP4
-Repositório do projeto de LTP4
+Repositório do projeto de LTP4 - 2016 -Segundo Semestre - UPIS - Sistemas de Informação
 
 Tecnologias utilizadas além da linguagem computacional Java: JSTL E EL
 
