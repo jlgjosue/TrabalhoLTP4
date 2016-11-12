@@ -20,7 +20,6 @@
 	<input type="radio" name="sexo"  value="F"/>Feminino<br/>
 	<p><input type="submit" value="Cadastrar"/>
 </form>
-	<c:import url="../comum/opcaoBotoesCliente.jsp" />
 </center>
 
 </body>

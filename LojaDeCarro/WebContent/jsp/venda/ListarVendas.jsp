@@ -45,7 +45,6 @@
 	<p><input type="button" onclick="location='/LojaDeCarro/venda?acao=Vender'" value="Realizar nova venda"></a><br/>
 	</c:otherwise>
 </c:choose>
-<c:import url="../comum/opcaoMenuPrincipal.jsp" />
 </center>
 </body>
 </html>

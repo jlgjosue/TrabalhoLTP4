@@ -15,22 +15,18 @@
 	
 			<c:out value="${msg}" />
 			<br />
-			<c:import url="../jsp/comum/opcaoBotoesCarro.jsp" />
 		</c:when>
 		  <c:when test="${origem eq 'cliente' }">
 		 
 		  <c:out value="${msg}"/><br/>
-			<P><c:import url="../jsp/comum/opcaoBotoesCliente.jsp" />
 		  </c:when>
 		  <c:when test="${origem eq 'venda' }">
 		  
 		  <p><c:out value="${msg}"></c:out><br />
 		
-		 <c:import url="../jsp/comum/opcaoMenuPrincipal.jsp" />
 		  </c:when>
 		<c:otherwise>
 			<c:out value="Um novo problema encontrado!!! :("/>
-			 <c:import url="../jsp/comum/opcaoMenuPrincipal.jsp" />
 		</c:otherwise>
 	</c:choose>
 

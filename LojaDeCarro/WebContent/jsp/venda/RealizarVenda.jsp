@@ -65,7 +65,6 @@
 		</form>
 </c:otherwise>
 </c:choose>
-<c:import url="../comum/opcaoMenuPrincipal.jsp" />
 	</center>
 </body>
 </html>

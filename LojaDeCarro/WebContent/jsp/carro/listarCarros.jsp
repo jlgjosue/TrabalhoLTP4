@@ -32,13 +32,13 @@
 		<td>${l.nome}</td>
 		<td><fmt:formatNumber value="${l.preco}" type="currency"/></td>
 		<td>${l.fornecedor}</td>
-		<td><a href="/LojaDeCarro/carro?acao=ConsultarProduto&id=${l.id}"/>Alterar</td>
+		<td><a href="/LojaDeCarro/carro?acao=Consultar&id=${l.id}"/>Alterar</td>
 		<td><a href="/LojaDeCarro/carro?acao=Excluir&id=${l.id}"/>Excluir</td>
 	</tr>
 	
 	</c:forEach>
 	</table>
-	 
+<c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>	 
 	 </c:when>
 
 <c:otherwise>

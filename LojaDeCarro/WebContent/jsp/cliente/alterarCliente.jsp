@@ -33,7 +33,6 @@
 
 <p><input type="submit" value="Alterar"/>
 </form>
-	<c:import url="../comum/opcaoBotoesCliente.jsp" />
 </center>
 
 </body>

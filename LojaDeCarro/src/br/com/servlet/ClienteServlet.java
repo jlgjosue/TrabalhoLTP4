@@ -71,8 +71,19 @@ public class ClienteServlet extends HttpServlet {
 			if (acao.equals("Excluir")) {
 				try {
 					cliente = clienteBO.consultarPorId(Integer.parseInt(req.getParameter("id")));
-					clienteBO.excluirCliente(cliente);
-					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
+					System.out.println(clienteBO.verificarCliente(cliente.getId()));
+					if(clienteBO.verificarCliente(cliente.getId()) ){
+						
+						
+						clienteBO.excluirCliente(cliente);
+						resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
+					}else{
+						
+						msg = "Erro ao excuir o cliente! por causa da venda!!";
+						req.setAttribute("msg", msg);
+						req.setAttribute("origem", "cliente");
+						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					}
 
 				
 
@@ -113,17 +124,10 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setEmail(req.getParameter("email"));
 					cliente.setTelefone(req.getParameter("telefone"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
-					if(clienteBO.verificarCliente(cliente.getId())){
-						
-						msg = "Erro ao alterar o cliente!";
-						req.setAttribute("msg", msg);
-						req.setAttribute("origem", "cliente");
-						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
-						
-					}else{
+					
 					clienteBO.alterarCliente(cliente);
 					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
-					}
+					
 					
 				
 

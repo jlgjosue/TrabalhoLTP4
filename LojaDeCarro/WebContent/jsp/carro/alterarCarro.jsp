@@ -20,6 +20,6 @@
 		<input type="submit" value="Alterar">
 
 	</form>
-
+<c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>
 </body>
 </html>

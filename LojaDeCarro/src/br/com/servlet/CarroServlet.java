@@ -63,7 +63,7 @@ public class CarroServlet extends HttpServlet {
 
 				}
 
-			} else if (acao.equals("ConsultarCarro")) {
+			} else if (acao.equals("Consultar")) {
 				try {
 					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
 					req.setAttribute("carro", carro);
@@ -85,17 +85,12 @@ public class CarroServlet extends HttpServlet {
 					carro.setNome(req.getParameter("nome"));
 					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
 					carro.setFornecedor(req.getParameter("fornecedor"));
-					if (carroBO.verificarCarro(carro.getId())) {
-						
-						msg = "Por motivos historicos o carro "+carro.getNome()+" não pode ser alterado, para que isso seja possivel, o senho terar de excluir todas as vendas realionadas a este.";
-						req.setAttribute("msg", msg);
-						req.setAttribute("origem", "car");
-						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
-					}else{
+					System.out.println(carroBO.verificarCarro(carro.getId()));
+					
 					carroBO.alterarCarro(carro);
 
 					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
-					}
+					
 
 				} catch (SQLException e) {
 
@@ -109,10 +104,19 @@ public class CarroServlet extends HttpServlet {
 
 			} else if (acao.equals("Excluir")) {
 				try {
-
+					
 					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
+					if(carroBO.verificarCarro(carro.getId())){
+						
 					carroBO.excluirCarro(carro);
 					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
+					
+					}else{
+						msg = "Erro ao excluir o carro! por causa da venda";
+						req.setAttribute("msg", msg);
+						req.setAttribute("origem", "car");
+						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					}
 
 				} catch (SQLException e) {
 
