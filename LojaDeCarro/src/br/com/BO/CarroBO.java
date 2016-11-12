@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.com.DAO.CarroDAO;
+import br.com.DAO.VendaDAO;
 import br.com.entidade.Carro;
 
 public class CarroBO {
@@ -28,6 +29,7 @@ public class CarroBO {
 	}
 
 	public static void alterarCarro(Carro produto) throws  SQLException {
+		
 		CarroDAO.alterarCarro(produto);
 		
 	}
@@ -35,6 +37,9 @@ public class CarroBO {
 	public static void excluirCarro(Carro produto) throws  SQLException {
 		CarroDAO.excluirCarro(produto);
 		
+	}
+	public static boolean verificarCarro(int id){
+		return VendaDAO.verificaCarro(id);
 	}
 
 }

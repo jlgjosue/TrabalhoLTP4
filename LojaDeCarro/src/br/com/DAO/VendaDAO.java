@@ -102,5 +102,51 @@ public class VendaDAO {
 		}
 		
 	}
+	
+	public static boolean verificaCarro(int id){
+		try {
+			Connection con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM venda WHERE carro_id  = ? ");
+			ps.setInt(1, id);
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) < 1) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	public static boolean verificaCliente(int id){
+		try {
+			Connection con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM venda WHERE Cliente_id  = ? ");
+			ps.setInt(1, id);
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) < 1) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	
 
 }

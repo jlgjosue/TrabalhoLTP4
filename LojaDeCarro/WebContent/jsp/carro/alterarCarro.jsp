@@ -7,9 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alterar dados do produto</title>
 </head>
-<body>
-
-    
+<body>    
    
 <c:set var="car" value="${carro}" />
 <form action="/LojaDeCarro/carro" method="post">
@@ -23,6 +21,5 @@
 
 	</form>
 
-	<c:import url="../comum/opcaoBotoesCarro.jsp" />
 </body>
 </html>

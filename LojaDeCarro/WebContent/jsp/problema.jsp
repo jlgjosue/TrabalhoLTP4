@@ -26,11 +26,11 @@
 		  
 		  <p><c:out value="${msg}"></c:out><br />
 		
-		 <c:import url="../comum/opcaoMenuPrincipal.jsp" />
+		 <c:import url="../jsp/comum/opcaoMenuPrincipal.jsp" />
 		  </c:when>
 		<c:otherwise>
 			<c:out value="Um novo problema encontrado!!! :("/>
-			 <c:import url="../comum/opcaoMenuPrincipal.jsp" />
+			 <c:import url="../jsp/comum/opcaoMenuPrincipal.jsp" />
 		</c:otherwise>
 	</c:choose>
 

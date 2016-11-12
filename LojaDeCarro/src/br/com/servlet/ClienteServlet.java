@@ -113,8 +113,17 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setEmail(req.getParameter("email"));
 					cliente.setTelefone(req.getParameter("telefone"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
+					if(clienteBO.verificarCliente(cliente.getId())){
+						
+						msg = "Erro ao alterar o cliente!";
+						req.setAttribute("msg", msg);
+						req.setAttribute("origem", "cliente");
+						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+						
+					}else{
 					clienteBO.alterarCliente(cliente);
 					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
+					}
 					
 				
 

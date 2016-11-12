@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.com.DAO.ClienteDAO;
+import br.com.DAO.VendaDAO;
 import br.com.DAO.CarroDAO;
 import br.com.entidade.Cliente;
 import br.com.entidade.Carro;
@@ -35,5 +36,9 @@ public class ClienteBO {
 		dao.alterarCliente(cliente);
 		
 	}
+	
+	public boolean verificarCliente(int id){
+		return VendaDAO.verificaCliente(id);
+				}
 
 }

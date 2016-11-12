@@ -85,9 +85,17 @@ public class CarroServlet extends HttpServlet {
 					carro.setNome(req.getParameter("nome"));
 					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
 					carro.setFornecedor(req.getParameter("fornecedor"));
+					if (carroBO.verificarCarro(carro.getId())) {
+						
+						msg = "Por motivos historicos o carro "+carro.getNome()+" não pode ser alterado, para que isso seja possivel, o senho terar de excluir todas as vendas realionadas a este.";
+						req.setAttribute("msg", msg);
+						req.setAttribute("origem", "car");
+						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					}else{
 					carroBO.alterarCarro(carro);
 
 					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
+					}
 
 				} catch (SQLException e) {
 
@@ -120,7 +128,7 @@ public class CarroServlet extends HttpServlet {
 				msg = "Erro na Acao...";
 				req.setAttribute("msg", msg);
 				req.setAttribute("origem", "car");
-				req.getRequestDispatcher("jsp/resultado/carro.jsp").forward(req, resp);
+				req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 			}
 
 		
