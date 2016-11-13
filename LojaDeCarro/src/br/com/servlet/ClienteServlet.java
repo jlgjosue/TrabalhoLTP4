@@ -71,8 +71,7 @@ public class ClienteServlet extends HttpServlet {
 			if (acao.equals("Excluir")) {
 				try {
 					cliente = clienteBO.consultarPorId(Integer.parseInt(req.getParameter("id")));
-					System.out.println(clienteBO.verificarCliente(cliente.getId()));
-					if(clienteBO.verificarCliente(cliente.getId()) ){
+					if(clienteBO.verificarClienteNaVenda(cliente.getId()) ){
 						
 						
 						clienteBO.excluirCliente(cliente);

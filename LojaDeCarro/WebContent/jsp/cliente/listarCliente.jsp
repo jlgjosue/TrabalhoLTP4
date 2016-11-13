@@ -34,6 +34,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+		<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 
 	
 </c:when>	

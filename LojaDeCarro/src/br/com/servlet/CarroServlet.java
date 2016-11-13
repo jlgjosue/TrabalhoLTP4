@@ -85,7 +85,6 @@ public class CarroServlet extends HttpServlet {
 					carro.setNome(req.getParameter("nome"));
 					carro.setPreco(Double.parseDouble(req.getParameter("preco")));
 					carro.setFornecedor(req.getParameter("fornecedor"));
-					System.out.println(carroBO.verificarCarro(carro.getId()));
 					
 					carroBO.alterarCarro(carro);
 
@@ -106,7 +105,7 @@ public class CarroServlet extends HttpServlet {
 				try {
 					
 					carro = carroBO.consutarPorId(Integer.parseInt(req.getParameter("id")));
-					if(carroBO.verificarCarro(carro.getId())){
+					if(carroBO.verificarCarroNaVenda(carro.getId())){
 						
 					carroBO.excluirCarro(carro);
 					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");

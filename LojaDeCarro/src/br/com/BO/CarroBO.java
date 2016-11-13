@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.DAO.CarroDAO;
 import br.com.DAO.VendaDAO;
+import br.com.Exception.CampoVazioExcetion;
 import br.com.entidade.Carro;
 
 public class CarroBO {
@@ -38,8 +39,18 @@ public class CarroBO {
 		CarroDAO.excluirCarro(produto);
 		
 	}
-	public static boolean verificarCarro(int id){
+	public static boolean verificarCarroNaVenda(int id){
 		return VendaDAO.verificaCarro(id);
+	}
+	
+	public boolean verificarCarro(Carro car) throws CampoVazioExcetion  {
+		
+		if((car.getNome() == null) || (car.getPreco()==0)){
+			 throw new  CampoVazioExcetion();
+		}
+		
+		return true;
+		
 	}
 
 }

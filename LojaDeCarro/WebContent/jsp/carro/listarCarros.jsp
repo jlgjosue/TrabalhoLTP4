@@ -38,7 +38,7 @@
 	
 	</c:forEach>
 	</table>
-<c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>	 
+    <c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	 </c:when>
 
 <c:otherwise>

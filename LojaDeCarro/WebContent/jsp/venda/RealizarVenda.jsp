@@ -63,6 +63,8 @@
 			
 			<p>	<input type="submit" value="Vender"></p>
 		</form>
+				<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
+		
 </c:otherwise>
 </c:choose>
 	</center>

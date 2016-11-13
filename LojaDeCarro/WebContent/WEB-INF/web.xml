@@ -47,6 +47,12 @@
     <servlet-name>venda</servlet-name>
     <url-pattern>/venda</url-pattern>
   </servlet-mapping>
+  
+  <error-page>
+  <exception-type>java.lang.NumberFormatException</exception-type>
+  <location>/jsp/problema.jsp</location>
+  
+  </error-page>
  
   
 </web-app>

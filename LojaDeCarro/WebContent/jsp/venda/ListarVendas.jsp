@@ -39,6 +39,8 @@
 			</tr>
 		</c:forEach>
 	</table>
+<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
+	
 	</c:when>
 	<c:otherwise>
 	<h1> Nao temos nenhuma venda cadastrada no sistema!</h1>

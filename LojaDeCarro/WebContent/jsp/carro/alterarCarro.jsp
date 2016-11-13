@@ -8,7 +8,7 @@
 <title>Alterar dados do produto</title>
 </head>
 <body>    
-   
+ <center> 
 <c:set var="car" value="${carro}" />
 <form action="/LojaDeCarro/carro" method="post">
 
@@ -21,5 +21,6 @@
 
 	</form>
 <c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>
+</center>
 </body>
 </html>

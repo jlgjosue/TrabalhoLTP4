@@ -37,7 +37,7 @@ public class ClienteBO {
 		
 	}
 	
-	public boolean verificarCliente(int id){
+	public boolean verificarClienteNaVenda(int id){
 		return VendaDAO.verificaCliente(id);
 				}
 
