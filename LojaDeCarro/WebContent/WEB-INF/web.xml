@@ -48,8 +48,10 @@
     <url-pattern>/venda</url-pattern>
   </servlet-mapping>
   
+<!--   :) não posso utilizar o try{}catch(){} para trar uma rutimer, mas posso redirecionar para uma pagina especificar! :) -->
   <error-page>
   <exception-type>java.lang.NumberFormatException</exception-type>
+  
   <location>/jsp/problema.jsp</location>
   
   </error-page>

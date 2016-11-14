@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.banco.Conexao;
 import br.com.entidade.Carro;
+import br.com.utils.Conexao;
 import sun.applet.Main;
 
 public class CarroDAO {
@@ -18,7 +18,7 @@ public class CarroDAO {
 		Connection con = Conexao.getConexao();
 		if (con != null) {
 
-			PreparedStatement ps = con.prepareStatement("insert into carro (nome, preco, fornecedor) values (?,?,?)");
+			PreparedStatement ps = con.prepareStatement("INSERT INTO carro (nome, preco, fornecedor) VALUES (?,?,?)");
 			ps.setString(1, carro.getNome());
 			ps.setDouble(2, carro.getPreco());
 			ps.setString(3, carro.getFornecedor());
@@ -99,7 +99,7 @@ public class CarroDAO {
 		Connection con = Conexao.getConexao();
 
 		PreparedStatement ps = con
-				.prepareStatement("UPDATE carro  set nome = ?,  preco = ?, fornecedor = ? WHERE id = ?");
+				.prepareStatement("UPDATE carro  SET nome = ?,  preco = ?, fornecedor = ? WHERE id = ?");
 		ps.setString(1, carro.getNome());
 		ps.setDouble(2, carro.getPreco());
 		ps.setString(3, carro.getFornecedor());

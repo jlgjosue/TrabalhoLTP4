@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.banco.Conexao;
 import br.com.entidade.Cliente;
+import br.com.utils.Conexao;
 import br.com.entidade.Carro;
 
 public class ClienteDAO {
@@ -19,7 +19,7 @@ public class ClienteDAO {
 			Connection con = Conexao.getConexao();
 			if (con != null) {
 
-				PreparedStatement ps = con.prepareStatement("insert into cliente (nome, email, telefone, sexo) values (?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("INSERT INTO cliente (nome, email, telefone, sexo) VALUES (?,?,?,?)");
 				ps.setString(1, cliente.getNome());
 				ps.setString(2, cliente.getEmail());
 				ps.setString(3, cliente.getTelefone());

@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.banco.Conexao;
 import br.com.entidade.Carro;
 import br.com.entidade.Cliente;
 import br.com.entidade.Venda;
+import br.com.utils.Conexao;
 
 public class VendaDAO {
 
@@ -117,7 +117,7 @@ public class VendaDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -140,7 +140,7 @@ public class VendaDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

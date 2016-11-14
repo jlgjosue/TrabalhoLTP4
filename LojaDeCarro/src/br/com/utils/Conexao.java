@@ -1,4 +1,4 @@
-package br.com.banco;
+package br.com.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

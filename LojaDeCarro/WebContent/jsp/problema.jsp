@@ -12,21 +12,23 @@
 	
 	<c:choose>
 		<c:when test="${origem eq 'car' }">
-	
 			<c:out value="${msg}" />
+			<c:import url="/jsp/comum/opcaoBotoesCarro.js" />
 			<br />
 		</c:when>
 		  <c:when test="${origem eq 'cliente' }">
-		 
+	 
 		  <c:out value="${msg}"/><br/>
+		   <c:import url="/jsp/comum/opcaoBotoesCliente.jsp"/>
 		  </c:when>
 		  <c:when test="${origem eq 'venda' }">
 		  
 		  <p><c:out value="${msg}"></c:out><br />
-		
+		<a href="/LojaDeCarro/venda?acao=Vender">Realizer uma venda</a><br/>
 		  </c:when>
 		<c:otherwise>
-			<c:out value="Um novo problema encontrado!!! :("/>
+			<br/><h1>Verifique se o numero digitado é valido! não esquecesa de trocar a virgula por ponto.</h1>
+			<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 		</c:otherwise>
 	</c:choose>
 
