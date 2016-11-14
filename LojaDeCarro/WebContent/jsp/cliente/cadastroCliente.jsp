@@ -12,7 +12,7 @@
 <center>
 <form action="/LojaDeCarro/cliente" method="post">
 	<input type="hidden" name="acao" value="inserir" />
-	<p><label>Nome: </label> <input type="text"  name="nome" placeholder="Seu nome!"/><br/>	
+	<p><label>Nome: </label> <input type="text"  name="nome" placeholder="Seu nome!" checked="checked"/><br/>	
 	<p><label>Email: </label><input  type="email"  name="email" placeholder="Seu email" /><br/>
 	<p><label>Telefone:</label> <input type="text" name="telefone" placeholder="Seu numero de contato!" /> <br/>
 	<p><label>Sexo: </label><br/>

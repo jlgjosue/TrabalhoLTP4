@@ -7,12 +7,14 @@ import java.util.List;
 import br.com.DAO.CarroDAO;
 import br.com.DAO.VendaDAO;
 import br.com.Exception.CampoVazioExcetion;
+import br.com.Exception.CarroDeGraca;
 import br.com.entidade.Carro;
 
 public class CarroBO {
 	static CarroDAO DAO = new CarroDAO();
-	public boolean cadastro(Carro produto) throws  SQLException {
-	return DAO.cadastrar(produto);
+	public boolean cadastro(Carro carro) throws  SQLException, CampoVazioExcetion, CarroDeGraca {
+		verificarCarro(carro);
+	return DAO.cadastrar(carro);
 		
 	}
 
@@ -28,9 +30,9 @@ public class CarroBO {
 		return DAO.consultarPorId(Id);
 	}
 
-	public static void alterarCarro(Carro produto) throws  SQLException {
-		
-		DAO.alterarCarro(produto);
+	public static void alterarCarro(Carro carro) throws  SQLException, CampoVazioExcetion, CarroDeGraca {
+		verificarCarro(carro);
+		DAO.alterarCarro(carro);
 		
 	}
 
@@ -42,13 +44,16 @@ public class CarroBO {
 		return VendaDAO.verificaCarro(id);
 	}
 	
-	public boolean verificarCarro(Carro car) throws CampoVazioExcetion  {
+	public static void verificarCarro(Carro car) throws CampoVazioExcetion, CarroDeGraca  {
 		
-		if((car.getNome() == null) || (car.getPreco()==0)){
+		
+		if((car.getNome() == null || car.getNome() =="") ){
 			 throw new  CampoVazioExcetion();
 		}
+		if(car.getPreco() <=0){
+			throw new CarroDeGraca();
+		}
 		
-		return true;
 		
 	}
 
