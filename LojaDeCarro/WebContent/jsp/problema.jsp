@@ -10,18 +10,11 @@
 <body>
 	
 	<c:choose>
-		<c:when test="${origem eq 'car' }">
+		<c:when test="${not empty msg}">
 			<c:out value="${msg}" />
 			<br />
 		</c:when>
-		  <c:when test="${origem eq 'cliente' }">
-	 
-		  <c:out value="${msg}"/><br/>
-		  </c:when>
-		  <c:when test="${origem eq 'venda' }">
-		  
-		  <p><c:out value="${msg}"></c:out><br />
-		  </c:when>
+		
 		<c:otherwise>
 			<br/><h1>Verifique se o numero digitado é valido! Não esquecesa de trocar a virgula por ponto.</h1>
 		</c:otherwise>

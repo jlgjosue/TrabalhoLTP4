@@ -53,7 +53,6 @@ public class VendaServlet extends HttpServlet {
 					msg = "	Erro ao listar os clientes ou produtos disponíveis!" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "venda");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 				
@@ -77,7 +76,6 @@ public class VendaServlet extends HttpServlet {
 					msg = "	Erro ao cadastrar a nova venda!\n" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "venda");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 				
@@ -94,7 +92,6 @@ public class VendaServlet extends HttpServlet {
 					msg = "	Erro ao listar as vendas!" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "venda");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 			}else if(acao.equals("Excluir")) {

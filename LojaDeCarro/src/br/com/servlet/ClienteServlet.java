@@ -34,7 +34,8 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setTelefone(req.getParameter("telefone"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
 					clienteBO.cadastar(cliente);
-					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
+					throw new Exception();
+					//resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 
 				
 
@@ -42,10 +43,13 @@ public class ClienteServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao inserir um novo ususario!!\n" + e;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "cliente");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				
+				} catch (Exception e) {
+					msg = "Erro ao inserir um novo ususario!!\n" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 			}
 			if (acao.equals("Listar")) {
@@ -63,7 +67,6 @@ public class ClienteServlet extends HttpServlet {
 					msg = "	Erro ao listar os clientes disponíveis!\n" + e;
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "cliente");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 
@@ -80,7 +83,6 @@ public class ClienteServlet extends HttpServlet {
 						
 						msg = "Erro ao excuir o cliente! por causa da venda!!";
 						req.setAttribute("msg", msg);
-						req.setAttribute("origem", "cliente");
 						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					}
 
@@ -90,7 +92,6 @@ public class ClienteServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao excluir o cliente!!\n" + e;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "cliente");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				} 
@@ -109,7 +110,6 @@ public class ClienteServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao consultar o cliente a ser alterado\n" + e;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "cliente");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				} 
@@ -135,7 +135,6 @@ public class ClienteServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao alterar o cliente!\n" + e;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "cliente");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				} 

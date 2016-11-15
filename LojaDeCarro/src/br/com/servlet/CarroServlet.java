@@ -111,7 +111,6 @@ public class CarroServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao alterar o carro!\n" + e;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				}catch (CampoVazioExcetion e) {
@@ -119,13 +118,11 @@ public class CarroServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao ao alterar o carro pois o nome não foi digitado!!";
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (CarroDeGraca e) {
 					msg = "Erro ao alterar o novo carro, não foi posivel pois o seu preço esta igual ou abaixo de zero. NÃO VENDEMOS CARROS DE GRAÇA!!" ;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 
@@ -141,7 +138,6 @@ public class CarroServlet extends HttpServlet {
 					}else{
 						msg = "Erro ao excluir o carro! por causa da venda";
 						req.setAttribute("msg", msg);
-						req.setAttribute("origem", "car");
 						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					}
 
@@ -150,7 +146,6 @@ public class CarroServlet extends HttpServlet {
 					e.printStackTrace();
 					msg = "Erro ao excluir o carro!\n" + e;
 					req.setAttribute("msg", msg);
-					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				}
@@ -158,7 +153,6 @@ public class CarroServlet extends HttpServlet {
 			} else {
 				msg = "Erro na Acao...";
 				req.setAttribute("msg", msg);
-				req.setAttribute("origem", "car");
 				req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 			}
 
