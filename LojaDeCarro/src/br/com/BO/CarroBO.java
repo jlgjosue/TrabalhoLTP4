@@ -47,7 +47,7 @@ public class CarroBO {
 	public static void verificarCarro(Carro car) throws CampoVazioExcetion, CarroDeGraca  {
 		
 		
-		if((car.getNome() == null || car.getNome() =="") ){
+		if( car.getNome() =="" || car.getFornecedor() ==""){
 			 throw new  CampoVazioExcetion();
 		}
 		if(car.getPreco() <=0){

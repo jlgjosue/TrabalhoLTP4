@@ -48,7 +48,7 @@ public class VendaDAO {
 			
 
 			PreparedStatement query = con.prepareStatement(
-					"SELECT ven.idVenda ,cli.nome, cli.email, cli.sexo, car.nome, car.preco, ven.descricao FROM venda ven "
+					"SELECT ven.idVenda ,cli.nome, cli.email, cli.sexo, cli.cpf, car.nome, car.preco, ven.descricao FROM venda ven "
 					+ "JOIN cliente cli ON cli.id = ven.Cliente_id  "
 					+ "JOIN carro car ON ven.carro_id = car.id ORDER BY cli.nome, car.nome");
 			ResultSet result = query.executeQuery();
@@ -61,7 +61,8 @@ public class VendaDAO {
 				cliente = venda.getCliente();
 				cliente.setNome(result.getString("cli.nome"));
 				cliente.setEmail(result.getString("cli.email"));
-				cliente.setSexo(result.getString("cli.sexo").charAt(0));				
+				cliente.setSexo(result.getString("cli.sexo").charAt(0));
+				cliente.setCpf(result.getString("cli.cpf"));
 				venda.setCliente(cliente);
 				
 				carro = venda.getCarro();

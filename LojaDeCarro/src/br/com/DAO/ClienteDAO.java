@@ -19,10 +19,10 @@ public class ClienteDAO {
 			Connection con = Conexao.getConexao();
 			if (con != null) {
 
-				PreparedStatement ps = con.prepareStatement("INSERT INTO cliente (nome, email, telefone, sexo) VALUES (?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("INSERT INTO cliente (nome, email, cpf, sexo) VALUES (?,?,?,?)");
 				ps.setString(1, cliente.getNome());
 				ps.setString(2, cliente.getEmail());
-				ps.setString(3, cliente.getTelefone());
+				ps.setString(3, cliente.getCpf());
 				ps.setString(4, String.valueOf(cliente.getSexo()));
 				ps.execute();
 				con.close();
@@ -43,7 +43,7 @@ public class ClienteDAO {
 		List<Cliente> lista = new ArrayList<Cliente>();
 		try {
 			Connection con = Conexao.getConexao();
-			PreparedStatement query = con.prepareStatement("SELECT id, nome, email, telefone, sexo FROM cliente ");
+			PreparedStatement query = con.prepareStatement("SELECT id, nome, email, cpf, sexo FROM cliente ");
 			ResultSet result = query.executeQuery();
 
 			while (result.next()) {
@@ -51,7 +51,7 @@ public class ClienteDAO {
 				cliente.setId(result.getInt(1));
 				cliente.setNome(result.getString(2));
 				cliente.setEmail(result.getString(3));
-				cliente.setTelefone(result.getString(4));
+				cliente.setCpf(result.getString(4));
 				cliente.setSexo(result.getString(5).charAt(0));
 				lista.add(cliente);
 
@@ -89,7 +89,7 @@ public class ClienteDAO {
 		try {
 			Connection con = Conexao.getConexao();
 			PreparedStatement ps = con
-					.prepareStatement("SELECT id, nome, email, telefone, sexo FROM cliente  WHERE id = ?");
+					.prepareStatement("SELECT id, nome, email, cpf, sexo FROM cliente  WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -97,7 +97,7 @@ public class ClienteDAO {
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setEmail(rs.getString("email"));
-				cliente.setTelefone(rs.getString("telefone"));
+				cliente.setCpf(rs.getString("cpf"));
 				cliente.setSexo(rs.getString("sexo").charAt(0));
 			}
 			con.close();
@@ -116,10 +116,10 @@ public class ClienteDAO {
 		try {
 			Connection con = Conexao.getConexao();
 
-			PreparedStatement ps = con.prepareStatement("UPDATE cliente  set nome = ?,  email = ?, telefone = ?, sexo = ? WHERE id = ?");
+			PreparedStatement ps = con.prepareStatement("UPDATE cliente  set nome = ?,  email = ?, cpf = ?, sexo = ? WHERE id = ?");
 			ps.setString(1, cliente.getNome());
 			ps.setString(2, cliente.getEmail());
-			ps.setString(3, cliente.getTelefone());
+			ps.setString(3, cliente.getCpf());
 			ps.setString(4, String.valueOf(cliente.getSexo()));
 			ps.setInt(5, cliente.getId());
 

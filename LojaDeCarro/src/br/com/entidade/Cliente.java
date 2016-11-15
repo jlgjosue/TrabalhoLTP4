@@ -4,7 +4,7 @@ public class Cliente {
 	private int id;
 	private String nome;
 	private String email;
-	private String telefone;
+	private String cpf;
 	private char sexo;
 	
 	public int getId() {
@@ -25,11 +25,12 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTelefone() {
-		return telefone;
+	
+	public String getCpf() {
+		return cpf;
 	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public char getSexo() {
 		return sexo;

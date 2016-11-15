@@ -18,6 +18,7 @@
 	
 		<tr>
 			<td>Cliente</td>
+			<td>CPF</td>
 			<td>E-Mail</td>
 			<td>Sexo</td>
 			<td>Carro</td>
@@ -29,6 +30,7 @@
 		<c:forEach var="v" items="${vendas}">
 			<tr>
 				<td>${v.cliente["nome"]}</td>
+				<td>${v.cliente["cpf"]}</td>
 				<td>${v.cliente["email"]}</td>
 				<td>${v.cliente["sexo"]}</td>
 				<td>${v.carro["nome"]}</td>

@@ -31,7 +31,7 @@ public class ClienteServlet extends HttpServlet {
 
 					cliente.setNome(req.getParameter("nome"));
 					cliente.setEmail(req.getParameter("email"));
-					cliente.setTelefone(req.getParameter("telefone"));
+					cliente.setCpf(req.getParameter("cpf"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
 					clienteBO.cadastar(cliente);
 					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
@@ -116,7 +116,7 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setId(Integer.parseInt(req.getParameter("id")));
 					cliente.setNome(req.getParameter("nome"));
 					cliente.setEmail(req.getParameter("email"));
-					cliente.setTelefone(req.getParameter("telefone"));
+					cliente.setCpf(req.getParameter("cpf"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
 					
 					clienteBO.alterarCliente(cliente);

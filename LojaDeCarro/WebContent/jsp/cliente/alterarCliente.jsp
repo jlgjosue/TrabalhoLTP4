@@ -16,7 +16,7 @@
 	<input type="hidden" name="id" value="${cli.id}"/>
 	<label>Nome: </label> <input type="text"  name="nome" value="${cli.nome}" /><br/>	
 	<label>Email: </label><input  type="text"  name="email" value="${cli.email}"/><br/>
-	<label>Telefone:</label> <input type="text" name="telefone" value="${cli.telefone}" /> <br/>
+	<label>CPF:</label> <input type="text" name="cpf" value="${cli.cpf}" /> <br/>
 	<label>Sexo: </label><br/>
 	
 	<c:set var="m" value="M"/>

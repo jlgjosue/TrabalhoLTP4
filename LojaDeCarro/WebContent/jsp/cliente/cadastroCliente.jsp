@@ -14,7 +14,7 @@
 	<input type="hidden" name="acao" value="inserir" />
 	<p><label>Nome: </label> <input type="text"  name="nome" placeholder="Seu nome!" checked="checked"/><br/>	
 	<p><label>Email: </label><input  type="email"  name="email" placeholder="Seu email" /><br/>
-	<p><label>Telefone:</label> <input type="text" name="telefone" placeholder="Seu numero de contato!" /> <br/>
+	<p><label>CPF:</label> <input type="text" name="cpf" placeholder="Seu CPF" /> <br/>
 	<p><label>Sexo: </label><br/>
 	<input type="radio" name="sexo" checked="checked" value="M" />Masculino <br/>
 	<input type="radio" name="sexo"  value="F"/>Feminino<br/>

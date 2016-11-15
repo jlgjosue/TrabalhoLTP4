@@ -17,7 +17,7 @@
 			<tr>
 			<td>Nome</td>
 			<td>E-mail</td>
-			<td>Telefone</td>
+			<td>CPF</td>
 			<td>Sexo</td>
 			<td></td>
 			<td></td>
@@ -27,7 +27,7 @@
 			<tr>
 			<td>${c.nome}</td>
 			<td>${c.email}</td>
-			<td>${c.telefone}</td>
+			<td>${c.cpf}</td>
 			<td>${c.sexo}</td>
 			<td><a href="/LojaDeCarro/cliente?acao=Consultar&id=${c.id}"/>Alterar</td>
 			<td><a href="/LojaDeCarro/cliente?acao=Excluir&id=${c.id}"/>Excluir</td>
