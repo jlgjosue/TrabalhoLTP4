@@ -8,12 +8,17 @@ import br.com.DAO.CarroDAO;
 import br.com.DAO.VendaDAO;
 import br.com.Exception.CampoVazioException;
 import br.com.Exception.CarroDeGracaException;
+import br.com.Exception.CarroJaExisteException;
 import br.com.entidade.Carro;
 
 public class CarroBO {
 	static CarroDAO DAO = new CarroDAO();
-	public boolean cadastro(Carro carro) throws  SQLException, CampoVazioException, CarroDeGracaException {
+	public boolean cadastro(Carro carro) throws  SQLException, CampoVazioException, CarroDeGracaException, CarroJaExisteException {
+		
 		verificarCarro(carro);
+		
+		carroJaExite(carro);
+		
 	return DAO.cadastrar(carro);
 		
 	}
@@ -44,7 +49,7 @@ public class CarroBO {
 		return VendaDAO.verificaCarro(id);
 	}
 	
-	public static void verificarCarro(Carro car) throws CampoVazioException, CarroDeGracaException  {
+	private static void verificarCarro(Carro car) throws CampoVazioException, CarroDeGracaException  {
 		
 		
 		if( car.getNome() =="" || car.getFornecedor() ==""){
@@ -56,5 +61,10 @@ public class CarroBO {
 		
 		
 	}
+ private static void carroJaExite(Carro carro) throws CarroJaExisteException{
+	 if(CarroDAO.VerificarCarroExite(carro)){
+		 throw new CarroJaExisteException();
+	 }
+ }
 
 }

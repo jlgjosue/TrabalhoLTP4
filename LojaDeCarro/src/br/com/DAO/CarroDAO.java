@@ -129,5 +129,29 @@ public class CarroDAO {
 		}
 
 	}
+	public static boolean VerificarCarroExite(Carro carro) {
+		
+		try {
+			Connection con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM carro WHERE nome  = ? ");
+			ps.setString(1, carro.getNome());
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) > 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	}
 
-}
+

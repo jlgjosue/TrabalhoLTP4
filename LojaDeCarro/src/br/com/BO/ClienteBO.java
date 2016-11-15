@@ -7,6 +7,7 @@ import br.com.DAO.ClienteDAO;
 import br.com.DAO.VendaDAO;
 import br.com.Exception.CPFInvalidoException;
 import br.com.Exception.CampoVazioException;
+import br.com.Exception.ClienteJaExiteException;
 import br.com.Exception.EmailInvalidoException;
 import br.com.DAO.CarroDAO;
 import br.com.entidade.Cliente;
@@ -15,7 +16,7 @@ import br.com.entidade.Carro;
 public class ClienteBO {
 	 private static ClienteDAO dao = new ClienteDAO();
 	 
-	public void cadastar(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException {
+	public void cadastar(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException, ClienteJaExiteException {
 		vereficarCliente(cliente);
 		dao.cadastrar(cliente);
 		
@@ -35,7 +36,7 @@ public class ClienteBO {
 		
 	}
 
-	public void alterarCliente(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException {
+	public void alterarCliente(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException, ClienteJaExiteException {
 		vereficarCliente(cliente);
 		dao.alterarCliente(cliente);
 		
@@ -45,7 +46,7 @@ public class ClienteBO {
 		return VendaDAO.verificaCliente(id);
 				}
 	
-	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException, CPFInvalidoException{
+	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException, CPFInvalidoException, ClienteJaExiteException{
 		if(cliente.getNome() == "" || cliente.getCpf() =="" || cliente.getEmail()==""){
 			throw new CampoVazioException();
 		}
@@ -56,7 +57,15 @@ public class ClienteBO {
 		if(validarCPF(cliente.getCpf())==false){
 			throw new CPFInvalidoException();
 		}
+		if(verificarNoBancoCliente(cliente.getCpf())){
+			throw new ClienteJaExiteException();
+		}
 	}
+	private boolean verificarNoBancoCliente(String string) {
+		
+		return ClienteDAO.verificarCPFIgual(string);
+	}
+
 	private boolean validarCPF(String cpf){
 		//formato 1 2 3 . 4 5 6 . 7 8 9 - 10 11 == com os dois pontos e o traço 14 caracteres
 		if(cpf.length() >14){

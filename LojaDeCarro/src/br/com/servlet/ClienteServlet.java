@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import br.com.BO.ClienteBO;
 import br.com.Exception.CPFInvalidoException;
 import br.com.Exception.CampoVazioException;
+import br.com.Exception.ClienteJaExiteException;
 import br.com.Exception.EmailInvalidoException;
 import br.com.entidade.Cliente;
 
@@ -49,7 +50,7 @@ public class ClienteServlet extends HttpServlet {
 				
 				} catch (CampoVazioException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, verifique se todos os campos foram preenchidos!!\n" + e;
+					msg = "Erro ao inserir um novo usuario, verifique se todos os campos foram preenchidos!!" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
@@ -62,6 +63,11 @@ public class ClienteServlet extends HttpServlet {
 				} catch (CPFInvalidoException e) {
 					e.printStackTrace();
 					msg = "Erro ao inserir um novo usuario, cpf invlido!!\n" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+				} catch (ClienteJaExiteException e) {
+					e.printStackTrace();
+					msg = "Erro ao inserir um novo usuario, já esta cadastrado no banco um outro cliente com o mesmo cpf invlido!!" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
@@ -169,6 +175,11 @@ public class ClienteServlet extends HttpServlet {
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
+				} catch (ClienteJaExiteException e) {
+					e.printStackTrace();
+					msg = "Erro ao alterar o cliente! CPF já foi cadastrado em outro usuario!!!" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				} 
 
 			}

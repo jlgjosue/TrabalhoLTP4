@@ -131,4 +131,26 @@ public class ClienteDAO {
 		}
 
 	}
+
+	public static boolean verificarCPFIgual(String string) {
+		try {
+			Connection con = Conexao.getConexao();
+			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM cliente WHERE cpf  = ? ");
+			ps.setString(1, string);
+			ResultSet result = ps.executeQuery();
+			result.last();
+			if (result.getInt(1) > 0) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }
