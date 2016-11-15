@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.BO.ClienteBO;
-
+import br.com.Exception.CPFInvalidoException;
+import br.com.Exception.CampoVazioException;
+import br.com.Exception.EmailInvalidoException;
 import br.com.entidade.Cliente;
 
 public class ClienteServlet extends HttpServlet {
@@ -40,11 +42,28 @@ public class ClienteServlet extends HttpServlet {
 
 				} catch (SQLException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo ususario!!\n" + e;
+					msg = "Erro ao inserir um novo usuario!!\n" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				
+				} catch (CampoVazioException e) {
+					e.printStackTrace();
+					msg = "Erro ao inserir um novo usuario, verifique se todos os campos foram preenchidos!!\n" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					
+				} catch (EmailInvalidoException e) {
+					e.printStackTrace();
+					msg = "Erro ao inserir um novo usuario, email invlido!!\n" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					
+				} catch (CPFInvalidoException e) {
+					e.printStackTrace();
+					msg = "Erro ao inserir um novo usuario, cpf invlido!!\n" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 			}
 			if (acao.equals("Listar")) {
@@ -128,12 +147,34 @@ public class ClienteServlet extends HttpServlet {
 				} catch (SQLException e) {
 					
 					e.printStackTrace();
-					msg = "Erro ao alterar o cliente!\n" + e;
+					msg = "Erro ao alterar o cliente!" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
+				} catch (CampoVazioException e) {
+					e.printStackTrace();
+					msg = "Erro ao alterar o cliente! Verifique se todos os campos foram preenchidos!!" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					
+				} catch (EmailInvalidoException e) {
+					e.printStackTrace();
+					msg = "Erro ao alterar o cliente! E-Mail invalido!" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					
+				} catch (CPFInvalidoException e) {
+					e.printStackTrace();
+					msg = "Erro ao alterar o cliente! CPF Invalido!!!" + e;
+					req.setAttribute("msg", msg);
+					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					
 				} 
 
+			}else {
+				msg = "Erro ao escolher a acao!!!";
+				req.setAttribute("msg", msg);
+				req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 			}
 
 		

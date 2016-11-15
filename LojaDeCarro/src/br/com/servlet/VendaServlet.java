@@ -100,6 +100,10 @@ public class VendaServlet extends HttpServlet {
 				vendaBO.excluir(idVenda);
 				resp.sendRedirect("/LojaDeCarro/venda?acao=Listar");
 				
+			}else{
+				msg = "	Erro na acao da venda!";
+				req.setAttribute("msg", msg);
+				req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 			}
 		
 	}

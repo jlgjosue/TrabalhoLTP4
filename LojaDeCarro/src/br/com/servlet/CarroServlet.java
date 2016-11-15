@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.BO.CarroBO;
-import br.com.Exception.CampoVazioExcetion;
-import br.com.Exception.CarroDeGraca;
+import br.com.Exception.CampoVazioException;
+import br.com.Exception.CarroDeGracaException;
 import br.com.entidade.Carro;
 
 public class CarroServlet extends HttpServlet {
@@ -46,7 +46,7 @@ public class CarroServlet extends HttpServlet {
 					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
-				} catch (CampoVazioExcetion e) {
+				} catch (CampoVazioException e) {
 					
 					e.printStackTrace();
 					msg = "Erro ao cadastrar um novo carro pois o nome não foi digitado!!";
@@ -54,7 +54,7 @@ public class CarroServlet extends HttpServlet {
 					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
-				} catch (CarroDeGraca e) {
+				} catch (CarroDeGracaException e) {
 					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou abaixo de zero. NÃO VENDEMOS CARROS DE GRAÇA!!" ;
 					req.setAttribute("msg", msg);
 					req.setAttribute("origem", "car");
@@ -113,14 +113,14 @@ public class CarroServlet extends HttpServlet {
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
-				}catch (CampoVazioExcetion e) {
+				}catch (CampoVazioException e) {
 					
 					e.printStackTrace();
 					msg = "Erro ao ao alterar o carro pois o nome não foi digitado!!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
-				} catch (CarroDeGraca e) {
+				} catch (CarroDeGracaException e) {
 					msg = "Erro ao alterar o novo carro, não foi posivel pois o seu preço esta igual ou abaixo de zero. NÃO VENDEMOS CARROS DE GRAÇA!!" ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);

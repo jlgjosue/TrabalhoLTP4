@@ -5,14 +5,18 @@ import java.util.List;
 
 import br.com.DAO.ClienteDAO;
 import br.com.DAO.VendaDAO;
+import br.com.Exception.CPFInvalidoException;
+import br.com.Exception.CampoVazioException;
+import br.com.Exception.EmailInvalidoException;
 import br.com.DAO.CarroDAO;
 import br.com.entidade.Cliente;
 import br.com.entidade.Carro;
 
 public class ClienteBO {
 	 private static ClienteDAO dao = new ClienteDAO();
-	public void cadastar(Cliente cliente) throws  SQLException {
-		
+	 
+	public void cadastar(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException {
+		vereficarCliente(cliente);
 		dao.cadastrar(cliente);
 		
 	}
@@ -23,7 +27,6 @@ public class ClienteBO {
 	}
 
 	public Cliente consultarPorId(int id) throws  SQLException {
-		// TODO Auto-generated method stub
 		return dao.consultarPorId(id);
 	}
 
@@ -32,7 +35,8 @@ public class ClienteBO {
 		
 	}
 
-	public void alterarCliente(Cliente cliente) throws  SQLException {
+	public void alterarCliente(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException {
+		vereficarCliente(cliente);
 		dao.alterarCliente(cliente);
 		
 	}
@@ -40,5 +44,54 @@ public class ClienteBO {
 	public boolean verificarClienteNaVenda(int id){
 		return VendaDAO.verificaCliente(id);
 				}
+	
+	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException, CPFInvalidoException{
+		if(cliente.getNome() == "" || cliente.getCpf() =="" || cliente.getEmail()==""){
+			throw new CampoVazioException();
+		}
+		if(cliente.getEmail().indexOf("@") == -1){
+			throw new EmailInvalidoException();
+		}
+		
+		if(validarCPF(cliente.getCpf())==false){
+			throw new CPFInvalidoException();
+		}
+	}
+	private boolean validarCPF(String cpf){
+		//formato 1 2 3 . 4 5 6 . 7 8 9 - 10 11 == com os dois pontos e o traço 15 caracteres
+		if(cpf.length() >15){
+			return false;
+		}
+		
+		
+		int contPonto=0;
+		for(int i=0;i>cpf.length(); i++){
+			if(cpf.charAt(i) ==".".charAt(1)){
+				contPonto++;	
+			}
+		}
+		if(contPonto >2 || contPonto<2){
+			return false;
+		}
+		
+		int contTraco=0;
+		for(int i=0;i>cpf.length(); i++){
+			if(cpf.charAt(i) =="-".charAt(1)){
+				contTraco++;	
+			}
+		}
+		if(contTraco >1 || contTraco<2){
+			return false;
+		}
+		
+		if(cpf.length() - (contPonto + contTraco) <11){
+			return false;
+		}
+		
+		
+				return true;
+	}
+	
+	
 
 }
