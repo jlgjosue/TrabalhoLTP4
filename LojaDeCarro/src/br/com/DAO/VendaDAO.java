@@ -111,7 +111,6 @@ public class VendaDAO {
 			ps.setInt(1, id);
 			ResultSet result = ps.executeQuery();
 			result.last();
-			con.close();
 			if (result.getInt(1) < 1) {
 				return true;
 			} else {
@@ -134,7 +133,6 @@ public class VendaDAO {
 			ps.setInt(1, id);
 			ResultSet result = ps.executeQuery();
 			result.last();
-			con.close();
 			if (result.getInt(1) < 1) {
 				return true;
 			} else {

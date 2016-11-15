@@ -63,27 +63,28 @@ public class ClienteBO {
 			return false;
 		}
 		
-		
 		int contPonto=0;
-		for(int i=0;i>cpf.length(); i++){
-			if(cpf.charAt(i) ==".".charAt(1)){
+		
+		for(int i=0;i<cpf.length(); i++){
+			if(cpf.charAt(i)=='.'){
 				contPonto++;	
 			}
 		}
+		
 		if(contPonto >2 || contPonto<2){
 			return false;
 		}
-		
 		int contTraco=0;
-		for(int i=0;i>cpf.length(); i++){
-			if(cpf.charAt(i) =="-".charAt(1)){
+		for(int i=0;i<cpf.length(); i++){
+			if(cpf.charAt(i) =='-'){
 				contTraco++;	
 			}
 		}
-		if(contTraco >1 || contTraco<2){
+		if(contTraco >1 || contTraco<1){
 			return false;
 		}
 		
+		if(cpf.charAt(3)=='.' && cpf.charAt())
 		if(cpf.length() - (contPonto + contTraco) <11){
 			return false;
 		}

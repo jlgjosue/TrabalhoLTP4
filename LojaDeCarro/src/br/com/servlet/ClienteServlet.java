@@ -171,10 +171,6 @@ public class ClienteServlet extends HttpServlet {
 					
 				} 
 
-			}else {
-				msg = "Erro ao escolher a acao!!!";
-				req.setAttribute("msg", msg);
-				req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 			}
 
 		
