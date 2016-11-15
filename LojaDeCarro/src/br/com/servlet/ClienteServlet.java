@@ -34,8 +34,7 @@ public class ClienteServlet extends HttpServlet {
 					cliente.setTelefone(req.getParameter("telefone"));
 					cliente.setSexo(req.getParameter("sexo").charAt(0));
 					clienteBO.cadastar(cliente);
-					throw new Exception();
-					//resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
+					resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 
 				
 
@@ -46,10 +45,6 @@ public class ClienteServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				
-				} catch (Exception e) {
-					msg = "Erro ao inserir um novo ususario!!\n" + e;
-					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
 			}
 			if (acao.equals("Listar")) {
