@@ -58,8 +58,8 @@ public class ClienteBO {
 		}
 	}
 	private boolean validarCPF(String cpf){
-		//formato 1 2 3 . 4 5 6 . 7 8 9 - 10 11 == com os dois pontos e o traço 15 caracteres
-		if(cpf.length() >15){
+		//formato 1 2 3 . 4 5 6 . 7 8 9 - 10 11 == com os dois pontos e o traço 14 caracteres
+		if(cpf.length() >14){
 			return false;
 		}
 		
@@ -84,7 +84,9 @@ public class ClienteBO {
 			return false;
 		}
 		
-		if(cpf.charAt(3)=='.' && cpf.charAt())
+		if(!(cpf.charAt(3)=='.' && cpf.charAt(7)=='.' && cpf.charAt(11)=='-')){
+			return false;
+		}
 		if(cpf.length() - (contPonto + contTraco) <11){
 			return false;
 		}
