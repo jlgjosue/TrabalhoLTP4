@@ -18,6 +18,10 @@ public class ClienteBO {
 	 
 	public void cadastar(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException, ClienteJaExiteException {
 		vereficarCliente(cliente);
+		
+		if(verificarNoBancoCliente(cliente.getCpf())){
+			throw new ClienteJaExiteException();
+		}
 		dao.cadastrar(cliente);
 		
 	}
@@ -46,7 +50,7 @@ public class ClienteBO {
 		return VendaDAO.verificaCliente(id);
 				}
 	
-	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException, CPFInvalidoException, ClienteJaExiteException{
+	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException, CPFInvalidoException{
 		if(cliente.getNome() == "" || cliente.getCpf() =="" || cliente.getEmail()==""){
 			throw new CampoVazioException();
 		}
@@ -57,9 +61,7 @@ public class ClienteBO {
 		if(validarCPF(cliente.getCpf())==false){
 			throw new CPFInvalidoException();
 		}
-		if(verificarNoBancoCliente(cliente.getCpf())){
-			throw new ClienteJaExiteException();
-		}
+		
 	}
 	private boolean verificarNoBancoCliente(String string) {
 		
@@ -98,9 +100,7 @@ public class ClienteBO {
 		}
 		if(cpf.length() - (contPonto + contTraco) <11){
 			return false;
-		}
-		
-		
+		}		
 				return true;
 	}
 	
