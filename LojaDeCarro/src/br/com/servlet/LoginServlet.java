@@ -10,20 +10,32 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.BO.LoginBO;
 
 public class LoginServlet extends HttpServlet {
-	private String acao;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
+		
+				
+				if( req.getParameter("acao") == null || req.getParameter("acao").equals("Sair") ){
+					
+					req.getSession().invalidate();
+					resp.sendRedirect("../LojaDeCarro/index.jsp");
+					
+				}else{
+					
+					resp.sendRedirect("../LojaDeCarro/jsp/menuPrincipal.jsp");
+				}
+			
+		
+			
+		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 			
-		acao = req.getParameter("acao");
 		
 		
-		if (acao.equals("Logar")) {
+		if (req.getParameter("acao").equals("Logar")) {
 			String user = req.getParameter("user");
 			String senha = req.getParameter("senha");
 
@@ -38,11 +50,6 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("Não entrou na festa!");
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
-		}else if(acao.equals("Sair")){
-			
-			req.getSession().invalidate();
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-			
 		}else{
 			System.out.println("acao incoreta!!");
 			resp.sendRedirect("../LojaDeCarro/index.jsp");
