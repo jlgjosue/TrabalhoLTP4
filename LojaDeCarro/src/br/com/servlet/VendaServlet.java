@@ -50,7 +50,7 @@ public class VendaServlet extends HttpServlet {
 
 				} catch (SQLException e) {
 					
-					msg = "	Erro ao listar os clientes ou produtos disponíveis!" + e;
+					msg = "	Erro ao listar os clientes ou produtos disponíveis!";
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
@@ -73,7 +73,7 @@ public class VendaServlet extends HttpServlet {
 
 				} catch (SQLException e) {
 					
-					msg = "	Erro ao cadastrar a nova venda!\n" + e;
+					msg = "	Erro ao cadastrar a nova venda!\n";
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
@@ -89,7 +89,7 @@ public class VendaServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 					
-					msg = "	Erro ao listar as vendas!" + e;
+					msg = "	Erro ao listar as vendas!";
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);

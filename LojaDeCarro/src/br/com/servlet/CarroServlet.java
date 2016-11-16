@@ -42,7 +42,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao cadastrar um novo carro." + e;
+					msg = "Erro ao cadastrar um novo carro.";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
@@ -54,7 +54,7 @@ public class CarroServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (CarroDeGracaException e) {
-					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou abaixo de zero. NÃO VENDEMOS CARROS DE GRAÇA!!" ;
+					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou abaixo de zero." ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				} catch (CarroJaExisteException e) {
@@ -89,7 +89,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao culsutar o carro que iria se alterado!\n" + e;
+					msg = "Erro ao culsutar o carro que iria se alterado!\n";
 					req.setAttribute("msg", msg);
 					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
@@ -111,7 +111,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao alterar o carro!\n" + e;
+					msg = "Erro ao alterar o carro!\n";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
@@ -146,7 +146,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao excluir o carro!\n" + e;
+					msg = "Erro ao excluir o carro!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 

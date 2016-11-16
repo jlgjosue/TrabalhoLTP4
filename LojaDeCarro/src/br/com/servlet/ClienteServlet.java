@@ -43,26 +43,26 @@ public class ClienteServlet extends HttpServlet {
 
 				} catch (SQLException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario!!\n" + e;
+					msg = "Erro ao inserir um novo usuario!!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
 				
 				} catch (CampoVazioException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, verifique se todos os campos foram preenchidos!!" + e;
+					msg = "Erro ao inserir um novo usuario, verifique se todos os campos foram preenchidos!!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (EmailInvalidoException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, email invlido!!\n" + e;
+					msg = "Erro ao inserir um novo usuario, email invlido!!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (CPFInvalidoException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, cpf invlido!!\n" + e;
+					msg = "Erro ao inserir um novo usuario, cpf invlido!!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				} catch (ClienteJaExiteException e) {
@@ -84,7 +84,7 @@ public class ClienteServlet extends HttpServlet {
 
 				} catch (SQLException e) {
 					
-					msg = "	Erro ao listar os clientes disponíveis!\n" + e;
+					msg = "	Erro ao listar os clientes disponíveis!";
 					e.printStackTrace();
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
