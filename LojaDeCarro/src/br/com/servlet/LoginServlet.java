@@ -13,47 +13,40 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		if (req.getParameter("acao") == null ||req.getParameter("acao").equals("Logar")) {
+			resp.sendRedirect("../LojaDeCarro/index.jsp");
+		}else{
+			doPost(req, resp);
+		}
 		
-				
-				if( req.getParameter("acao") == null || req.getParameter("acao").equals("Sair") ){
-					
-					req.getSession().invalidate();
-					resp.sendRedirect("../LojaDeCarro/index.jsp");
-					
-				}else{
-					
-					resp.sendRedirect("../LojaDeCarro/jsp/menuPrincipal.jsp");
-				}
-			
-		
-			
-		
+
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
-			
-		
-		
-		if (req.getParameter("acao").equals("Logar")) {
-			String user = req.getParameter("user");
-			String senha = req.getParameter("senha");
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-			
-			if (LoginBO.verificaLogin(user, senha)) {
+		
+
+			 if (req.getParameter("acao").equals("Logar")) {
+				 	String user = req.getParameter("user");
+				 	String senha = req.getParameter("senha");
+
+					if (LoginBO.verificaLogin(user, senha)) {
+						req.getSession().setAttribute("usuario", "josue");
+						req.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(req, resp);
+
+					} else {
+
+						resp.sendRedirect("../LojaDeCarro/index.jsp");
+				}
+			} else if(req.getParameter("acao").equals("Sair") ){
 				
-				req.getSession().setAttribute("usuario", "josue");
-				req.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(req, resp);
-				
-			} else {
-				
-				System.out.println("Não entrou na festa!");
+					req.getSession().invalidate();
+					resp.sendRedirect("../LojaDeCarro/index.jsp");
+			}else{
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
-		}else{
-			System.out.println("acao incoreta!!");
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
-		}
+		
 
 	}
 
