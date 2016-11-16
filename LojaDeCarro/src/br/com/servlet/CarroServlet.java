@@ -57,6 +57,7 @@ public class CarroServlet extends HttpServlet {
 					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou abaixo de zero." ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
+					
 				} catch (CarroJaExisteException e) {
 					
 					msg = "Erro ao cadastrar um novo carro, não foi posivel pois já exite um carro com o mesmo nome!!" ;
@@ -138,7 +139,8 @@ public class CarroServlet extends HttpServlet {
 					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
 					
 					}else{
-						msg = "Erro ao excluir o carro! por causa da venda";
+						msg = "Erro ao excluir o carro! O "+carro.getNome()+" não pode ser ecluido, pois já venderam para um "
+								+ "cliente este carro, para exclui-lo você tem que excluir a venda deste carro";
 						req.setAttribute("msg", msg);
 						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					}

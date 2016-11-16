@@ -16,7 +16,7 @@
 		</c:when>
 		
 		<c:otherwise>
-			<br/><h1>Verifique se o numero digitado é valido! Não esquecesa de trocar a virgula por ponto.</h1>
+			<br/><h1>Verifique se o numero digitado é valido! Não esqueça de trocar a virgula por ponto.</h1>
 		</c:otherwise>
 	</c:choose>
 <c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 

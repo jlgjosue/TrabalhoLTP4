@@ -50,7 +50,8 @@ public class ClienteBO {
 		return VendaDAO.verificaCliente(id);
 				}
 	
-	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException, CPFInvalidoException{
+	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException {
+		
 		if(cliente.getNome() == "" || cliente.getCpf() =="" || cliente.getEmail()==""){
 			throw new CampoVazioException();
 		}
@@ -58,9 +59,7 @@ public class ClienteBO {
 			throw new EmailInvalidoException();
 		}
 		
-		if(validarCPF(cliente.getCpf())==false){
-			throw new CPFInvalidoException();
-		}
+		
 		
 	}
 	private boolean verificarNoBancoCliente(String string) {

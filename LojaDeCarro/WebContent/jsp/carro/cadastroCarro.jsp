@@ -21,7 +21,8 @@
 		<input type="submit" value="cadastrar">
 
 	</form>	
-	<c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>
+	
+	<c:import url="../comum/opcaoBotoesCarro.jsp"/>
 	</center>
 </body>
 </html>

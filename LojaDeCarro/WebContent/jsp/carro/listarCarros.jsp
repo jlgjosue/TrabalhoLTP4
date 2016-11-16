@@ -19,7 +19,7 @@
 	<h1> Lista dos carros cadastrados</h1>
 	<table border="1">
 		<tr>
-			<td>Nome do produto</td>
+			<td>Nome do carro</td>
 			<td>Preço</td>
 			<td>Fornecedor</td>
 			<td></td>

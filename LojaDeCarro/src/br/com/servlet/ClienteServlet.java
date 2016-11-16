@@ -67,7 +67,7 @@ public class ClienteServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				} catch (ClienteJaExiteException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, já esta cadastrado no banco um outro cliente com o mesmo cpf invlido!!" + e;
+					msg = "Erro ao inserir um novo usuario, já esta cadastrado no banco um outro cliente com o mesmo cpf!!" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
@@ -101,7 +101,7 @@ public class ClienteServlet extends HttpServlet {
 						resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 					}else{
 						
-						msg = "Erro ao excuir o cliente! por causa da venda!!";
+						msg = "Erro ao excuir o cliente! O cliente só pode ser excluido se a venda em que ele parece também for excluido!!";
 						req.setAttribute("msg", msg);
 						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					}
@@ -176,10 +176,8 @@ public class ClienteServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (ClienteJaExiteException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
-					msg = "Erro ao alterar o cliente! CPF já foi cadastrado em outro usuario!!!" + e;
-					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				} 
 
 			}

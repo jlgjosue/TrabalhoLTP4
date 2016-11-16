@@ -7,4 +7,4 @@
 
  <p> <input type="button" onclick="location='/LojaDeCarro/cliente?acao=Listar'" value="Lista dos clientes"><br/>
  
- <c:import url="/LojaDeCarro/jsp/comum/opcaoMenuPrincipal.jsp" />
+ <c:import url="../comum/opcaoMenuPrincipal.jsp" />
