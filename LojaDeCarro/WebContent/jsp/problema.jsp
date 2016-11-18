@@ -8,17 +8,11 @@
 <title>Pagina de erro</title>
 </head>
 <body>
-	
-	<c:choose>
-		<c:when test="${not empty msg}">
+	<center>
+		<c:if test="${not empty msg}">
 			<c:out value="${msg}" />
-			<br />
-		</c:when>
-		
-		<c:otherwise>
-			<br/><h1>Verifique se o numero digitado é valido! Não esqueça de trocar a virgula por ponto.</h1>
-		</c:otherwise>
-	</c:choose>
-<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
+		</c:if>
+		<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" />
+	</center>
 </body>
 </html>

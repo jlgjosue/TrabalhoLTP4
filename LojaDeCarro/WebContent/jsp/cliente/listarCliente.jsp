@@ -6,6 +6,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista de CLiente</title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;   
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+     text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+th {
+    background-color: #6495ED;
+    color: white;
+}
+</style>
 </head>
 <body>
 
@@ -13,27 +34,28 @@
 <c:choose>
 <c:when test="${clientes.size()>0}">
 	
-		<table border="1">
+		<table >
 			<tr>
-			<td>Nome</td>
-			<td>E-mail</td>
-			<td>CPF</td>
-			<td>Sexo</td>
-			<td></td>
-			<td></td>
+			<th>Nome</th>
+			<th>E-mail</th>
+			<th>CPF</th>
+			<th>Sexo</th>
+			<th>Opçôes</th>
+			
 			
 			</tr>
 			<c:forEach var="c" items="${clientes}">
 			<tr>
 			<td>${c.nome}</td>
 			<td>${c.email}</td>
-			<td>${c.cpf}</td>
+			<td>${c.cpf}</td>	
 			<td>${c.sexo}</td>
-			<td><a href="/LojaDeCarro/cliente?acao=Consultar&id=${c.id}"/>Alterar</td>
-			<td><a href="/LojaDeCarro/cliente?acao=Excluir&id=${c.id}"/>Excluir</td>
+			<td><input type="button" onclick="location='/LojaDeCarro/cliente?acao=Consultar&id=${c.id}'" value="Alterar"/>
+			<input type="button" onclick="location='/LojaDeCarro/cliente?acao=Excluir&id=${c.id}'" value="Excluir"/></td>
 			</tr>
 			</c:forEach>
 		</table>
+		<p><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"/><br/>
 		<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 
 	

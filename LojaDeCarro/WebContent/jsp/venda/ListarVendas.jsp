@@ -8,23 +8,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista das vendas realizadas</title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;   
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+     text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+th {
+    background-color: #6495ED;
+    color: white;
+}
+</style>
 </head>
 <body>
 
 	<center>
  <c:choose>  
  <c:when test="${vendas.size()>0}">
-	<table border="1">
+	<table >
 	
 		<tr>
-			<td>Cliente</td>
-			<td>CPF</td>
-			<td>E-Mail</td>
-			<td>Sexo</td>
-			<td>Carro</td>
-			<td>Preço</td>
-			<td>Descrição da venda</td>
-			<td></td>
+			<th>Cliente</th>
+			<th>CPF</th>
+			<th>E-Mail</th>
+			<th>Sexo</th>
+			<th>Carro</th>
+			<th>Preço</th>
+			<th>Descrição da venda</th>
+			<th>Opçao</th>
 		</tr>
 		
 		<c:forEach var="v" items="${vendas}">
@@ -35,12 +56,22 @@
 				<td>${v.cliente["sexo"]}</td>
 				<td>${v.carro["nome"]}</td>
 				<td><fmt:formatNumber value="${v.carro['preco']}" type="currency"/></td>
+				
+				<c:choose>
+				<c:when test="${empty v.descricao}">
+				<td>Descrição não informada</td>
+				</c:when>
+				<c:otherwise>
 				<td>${v.descricao}</td>
-				<td><a href="/LojaDeCarro/venda?acao=Excluir&id=${v.idVenda}"/>Excluir </td>
+				</c:otherwise>
+				</c:choose>
+				
+				<td><input type="button" onclick="location='/LojaDeCarro/venda?acao=Excluir&id=${v.idVenda}'" value="Excluir"/></td>
 				
 			</tr>
 		</c:forEach>
 	</table>
+	<p><input type="button" onclick="location='/LojaDeCarro/venda?acao=Vender'" value="Cadastar nova venda"><br/>
 <c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	
 	</c:when>

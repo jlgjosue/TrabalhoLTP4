@@ -10,20 +10,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista de todos os produtos!</title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;   
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+     text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+th {
+    background-color: #6495ED;
+    color: white;
+}
+</style>
 </head>
-<body>
+
 
 <center>
 <c:choose>
 <c:when test="${Lista.size()>0}">
 	<h1> Lista dos carros cadastrados</h1>
-	<table border="1">
+	<table >
 		<tr>
-			<td>Nome do carro</td>
-			<td>Preço</td>
-			<td>Fornecedor</td>
-			<td></td>
-			<td></td>
+			<th>Nome do carro</th>
+			<th>Preço</th>
+			<th>Fornecedor</th>
+			<th>Opções</th>
 		</tr>
 	
 
@@ -32,12 +52,15 @@
 		<td>${l.nome}</td>
 		<td><fmt:formatNumber value="${l.preco}" type="currency"/></td>
 		<td>${l.fornecedor}</td>
-		<td><a href="/LojaDeCarro/carro?acao=Consultar&id=${l.id}"/>Alterar</td>
-		<td><a href="/LojaDeCarro/carro?acao=Excluir&id=${l.id}"/>Excluir</td>
+		<td>
+		<input type="button" onclick="location='/LojaDeCarro/carro?acao=Consultar&id=${l.id}'" value="Alterar">
+		<input type="button" onclick="location='/LojaDeCarro/carro?acao=Excluir&id=${l.id}'" value="Excluir">
+		
 	</tr>
 	
 	</c:forEach>
 	</table>
+	<p><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro no sistema"><br/> 
     <c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	 </c:when>
 

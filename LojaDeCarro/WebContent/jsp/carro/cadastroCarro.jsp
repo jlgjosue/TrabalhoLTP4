@@ -5,20 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>cadastro do produto</title>
+<title>cadastro do carro</title>
 </head>
 <body>
 
 	
 	<center>
-	<h1>cadastro do carro!!</h1>
+	<h1>Cadastre o carro, ${usuario}!!!!</h1>
 	
 	<form action="/LojaDeCarro/carro" method="post">
 		<input type="hidden" name="acao" value="inserir" />
-		Nome: <input type="text" name="nome" ></br>
-		Preço: <input type="text" name="preco" ></br>
-		Fornecedor: <input type="text" name="fornecedor"></br>
-		<input type="submit" value="cadastrar">
+		Nome: <input type="text" name="nome" required></br>
+		<p>Preço: <input type="number" name="preco" required></br>
+		<p>Fornecedor: <input type="text" name="fornecedor" required></br>
+		<p><input type="submit" value="cadastrar">
 
 	</form>	
 	

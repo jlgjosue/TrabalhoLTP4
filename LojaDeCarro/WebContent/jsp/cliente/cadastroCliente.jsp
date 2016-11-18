@@ -8,13 +8,13 @@
 <title>Cadastro de cliente</title>
 </head>
 <body>
-	
+
 <center>
 <form action="/LojaDeCarro/cliente" method="post">
 	<input type="hidden" name="acao" value="inserir" />
-	<p><label>Nome: </label> <input type="text"  name="nome" placeholder="Seu nome!" checked="checked"/><br/>	
-	<p><label>Email: </label><input  type="email"  name="email" placeholder="Seu email" /><br/>
-	<p><label>CPF:</label> <input type="text" name="cpf" placeholder="Seu CPF" /> <br/>
+	<p><label>Nome: </label> <input type="text"  name="nome" placeholder="Seu nome!" required/><br/>	
+	<p><label>Email: </label><input  type="email"  name="email" placeholder="Seu email" required /><br/>
+	<p><label>CPF:</label> <input type="text" name="cpf" placeholder="Seu CPF" required/> <br/>
 	<p><label>Sexo: </label><br/>
 	<input type="radio" name="sexo" checked="checked" value="M" />Masculino <br/>
 	<input type="radio" name="sexo"  value="F"/>Feminino<br/>
@@ -22,5 +22,6 @@
 </form>
 <c:import url="/jsp/comum/opcaoBotoesCliente.jsp"/>
 </center>
+
 </body>
 </html>

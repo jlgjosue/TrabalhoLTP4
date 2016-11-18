@@ -9,6 +9,7 @@
 </head>
 <body >
 
+
 <center>
 	<h1><c:out value="Bem vindo ao sistema ${usuario} !!!" /></h1>
 
@@ -26,8 +27,11 @@
 	<a href="/LojaDeCarro/venda?acao=Listar"> Listar as vendas</a>
 	</tr>
 	
-	<p><input type="button" onclick="location='/LojaDeCarro/login?acao=Sair'" value="Sair"><br/>
+	<p><input type="button" onclick="location='/LojaDeCarro/login'" value="Sair"><br/>
+	</p>
 </center>
+	
+	
 
 
 </body>

@@ -13,10 +13,9 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if (req.getParameter("acao") == null ||req.getParameter("acao").equals("Logar")) {
+		if (req.getParameter("acao") == null ||req.getParameter("acao").equals("Logar") || !req.getParameter("acao").equals("Logar")) {
+			req.getSession().invalidate();
 			resp.sendRedirect("../LojaDeCarro/index.jsp");
-		}else{
-			doPost(req, resp);
 		}
 		
 
@@ -39,11 +38,7 @@ public class LoginServlet extends HttpServlet {
 
 						resp.sendRedirect("../LojaDeCarro/index.jsp");
 				}
-			} else if(req.getParameter("acao").equals("Sair") ){
-				
-					req.getSession().invalidate();
-					resp.sendRedirect("../LojaDeCarro/index.jsp");
-			}else{
+			} else{
 				resp.sendRedirect("../LojaDeCarro/index.jsp");
 			}
 		

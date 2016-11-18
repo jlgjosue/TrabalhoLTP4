@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Alterar dados do produto</title>
+<title>Alterar dados do carro</title>
 </head>
 <body>    
  <center> 
@@ -14,10 +14,10 @@
 
 		<input type="hidden" name="acao" value="Alterar" />
 		<input type="hidden" name="id" value="${car.id}">
-		Nome: <input type="text" name="nome" value="${car.nome}"></br>
-		Preço: <input type="number" name="preco" value="${car.preco}"></br>
-		Fornecedor: <input type="text" name="fornecedor" value="${car.fornecedor}"></br>
-		<input type="submit" value="Alterar">
+		<p>Nome: <input type="text" name="nome" value="${car.nome}" required></br>
+		<p>Preço: <input type="number" name="preco" value="${car.preco}" required></br>
+		<p>Fornecedor: <input type="text" name="fornecedor" value="${car.fornecedor}" required></br>
+		<p><input type="submit" value="Alterar"><br>
 
 	</form>
 <c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>
