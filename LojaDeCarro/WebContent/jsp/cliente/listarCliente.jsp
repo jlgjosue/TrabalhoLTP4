@@ -6,27 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista de CLiente</title>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;   
-    width: 80%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-     text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-th {
-    background-color: #6495ED;
-    color: white;
-}
-</style>
+<link rel="stylesheet"  href="css/Table.css">
 </head>
 <body>
 
