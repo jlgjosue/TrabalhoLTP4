@@ -32,6 +32,7 @@
 </c:choose>
 
 <p><input type="submit" value="Alterar"/>
+<input type="reset" value="Limpar">
 </form>
 <c:import url="/jsp/comum/opcaoBotoesCliente.jsp"/>
 </center>

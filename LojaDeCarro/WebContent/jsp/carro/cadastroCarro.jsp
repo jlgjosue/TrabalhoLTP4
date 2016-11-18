@@ -19,6 +19,7 @@
 		<p>Preço: <input type="number" name="preco" required></br>
 		<p>Fornecedor: <input type="text" name="fornecedor" required></br>
 		<p><input type="submit" value="cadastrar">
+		<input type="reset" value="Limpar">
 
 	</form>	
 	

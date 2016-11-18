@@ -61,7 +61,8 @@
 			<p>	<a>Descrição:</a></p>
 			<P> <textarea rows="6" cols="40" name="descricao" wrap="hard"></textarea>
 			
-			<p>	<input type="submit" value="Vender"></p>
+			<p>	<input type="submit" value="Vender">
+			<input type="reset" value="Limpar">
 		</form>
 		<input type="button" onclick="location='/LojaDeCarro/venda?acao=Listar'" value=" Lista das vendas"><br/>
 				<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 

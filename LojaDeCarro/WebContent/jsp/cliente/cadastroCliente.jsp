@@ -19,6 +19,7 @@
 	<input type="radio" name="sexo" checked="checked" value="M" />Masculino <br/>
 	<input type="radio" name="sexo"  value="F"/>Feminino<br/>
 	<p><input type="submit" value="Cadastrar"/>
+	<input type="reset" value="Limpar">
 </form>
 <c:import url="/jsp/comum/opcaoBotoesCliente.jsp"/>
 </center>

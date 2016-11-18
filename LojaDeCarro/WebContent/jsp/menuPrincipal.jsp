@@ -5,7 +5,6 @@
 <html>
 <head>
 <style>
-
 a:link, a:visited {
     background-color: #6495ED;
     color: white;
@@ -13,12 +12,13 @@ a:link, a:visited {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    border-radius: 6%
 }
 a:hover, a:active {
     background-color: blue;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
+input[type=button] {
     background-color: red;
     border: none;
     color: black;
@@ -26,6 +26,10 @@ input[type=button], input[type=submit], input[type=reset] {
     text-decoration: underline;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 25%
+}
+body {
+	color: #6495ED
 }
 
 
@@ -35,21 +39,21 @@ input[type=button], input[type=submit], input[type=reset] {
 </head>
 <body>
 <center>
-	<h1 style="color: #6495ED"><c:out value="Bem vindo ao sistema ${usuario} !!!" /></h1>
+	<u> <h1 ><c:out value="Bem vindo ao sistema ${usuario} !!!" /></h1></u>
 
 <table>
 <th>
-	<h2 style="color: #6495ED">Carro</h2>
+	<h2  >Carro</h2>
 	<p><a href="/LojaDeCarro/jsp/carro/cadastroCarro.jsp">Cadastro de carro</a><br/>
 	<p><a href="/LojaDeCarro/carro?acao=Listar"> Lista dos carros</a>
 	</th>
 <th>
-	<h2 style="color: #6495ED">Cliente</h2>
+	<h2 >Cliente</h2>
 	<p><a	href="/LojaDeCarro/jsp/cliente/cadastroCliente.jsp">Cadastro de cliente</a><br/>
 	<p><a href="/LojaDeCarro/cliente?acao=Listar">Lista de clientes</a>
 	</th>
 <th>
-	<h2 style="color: #6495ED">Venda</h2>
+	<h2 >Venda</h2>
 	<p><a href="/LojaDeCarro/venda?acao=Vender">Realizer uma venda</a><br/>
 	<p><a href="/LojaDeCarro/venda?acao=Listar"> Listar as vendas</a>
 	</th>
@@ -57,7 +61,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
 	<p><input type="button" onclick="location='/LojaDeCarro/login'" value="Sair"><br/>
 	</center>
-	</p>s	
+	</p>
 	
 
 

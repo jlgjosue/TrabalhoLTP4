@@ -17,7 +17,8 @@
 		<p>Nome: <input type="text" name="nome" value="${car.nome}" required></br>
 		<p>Preço: <input type="number" name="preco" value="${car.preco}" required></br>
 		<p>Fornecedor: <input type="text" name="fornecedor" value="${car.fornecedor}" required></br>
-		<p><input type="submit" value="Alterar"><br>
+		<p><input type="submit" value="Alterar">
+		<input type="reset" value="Limpar">
 
 	</form>
 <c:import url="/jsp/comum/opcaoBotoesCarro.jsp"/>
