@@ -19,10 +19,16 @@ public class ClienteBO {
 	public void cadastar(Cliente cliente) throws  SQLException, CampoVazioException, EmailInvalidoException, CPFInvalidoException, ClienteJaExiteException {
 		vereficarCliente(cliente);
 		
+		if(!validarCPF(cliente.getCpf())){
+			throw new CPFInvalidoException();
+		}
+		
 		if(verificarNoBancoCliente(cliente.getCpf())){
 			throw new ClienteJaExiteException();
 		}
-		dao.cadastrar(cliente);
+			dao.cadastrar(cliente);
+		
+		
 		
 	}
 
@@ -50,7 +56,7 @@ public class ClienteBO {
 		return VendaDAO.verificaCliente(id);
 				}
 	
-	private void vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException {
+	private boolean vereficarCliente(Cliente cliente) throws CampoVazioException, EmailInvalidoException {
 		
 		if(cliente.getNome() == "" || cliente.getCpf() =="" || cliente.getEmail()==""){
 			throw new CampoVazioException();
@@ -58,6 +64,7 @@ public class ClienteBO {
 		if(cliente.getEmail().indexOf("@") == -1){
 			throw new EmailInvalidoException();
 		}
+		return true;
 		
 		
 		
@@ -74,22 +81,20 @@ public class ClienteBO {
 		}
 		
 		int contPonto=0;
-		
+		int contTraco=0;
 		for(int i=0;i<cpf.length(); i++){
 			if(cpf.charAt(i)=='.'){
 				contPonto++;	
 			}
-		}
-		
-		if(contPonto >2 || contPonto<2){
-			return false;
-		}
-		int contTraco=0;
-		for(int i=0;i<cpf.length(); i++){
 			if(cpf.charAt(i) =='-'){
 				contTraco++;	
 			}
 		}
+		
+		if(contPonto >2 || contPonto<2){
+			return false ;
+		}
+		
 		if(contTraco >1 || contTraco<1){
 			return false;
 		}
@@ -97,12 +102,63 @@ public class ClienteBO {
 		if(!(cpf.charAt(3)=='.' && cpf.charAt(7)=='.' && cpf.charAt(11)=='-')){
 			return false;
 		}
-		if(cpf.length() - (contPonto + contTraco) <11){
+		if(cpf.length() - (contPonto + contTraco) <12){
+			return false;
+		}	
+		if(!procurarLetar(cpf)){
 			return false;
 		}		
+		
+		
 				return true;
 	}
 	
+	private boolean procurarLetar(String cpf){
+		boolean verficador = false;
+		for (int i = 0; i < cpf.length(); i++) {
+			switch (cpf.charAt(i)) {
+			case '1':
+				verficador = true;
+				break;
+			case '2':
+				verficador = true;
+				break;
+			case '3':
+				verficador = true;
+				break;
+			case '4':
+				verficador = true;
+				break;
+			case '5':
+				verficador = true;
+				break;
+			case '6':
+				verficador = true;
+				break;
+			case '7':
+				verficador = true;
+				break;
+			case '8':
+				verficador = true;
+				break;
+			case '9':
+				verficador = true;
+				break;
+			case '.':
+				verficador = true;
+				break;
+			case '-':
+				verficador = true;
+				break;
+			default:
+				verficador = false;
+				break;
+			}
+		}
+		
+		return verficador;
+		
+	}
 	
 
 }

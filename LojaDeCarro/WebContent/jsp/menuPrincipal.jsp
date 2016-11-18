@@ -17,7 +17,6 @@ a:link, a:visited {
 a:hover, a:active {
     background-color: blue;
 }
-
 input[type=button] {
     background-color: red;
     border: none;
@@ -31,8 +30,6 @@ input[type=button] {
 body {
 	color: #6495ED
 }
-
-
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu principal do sistema</title>
