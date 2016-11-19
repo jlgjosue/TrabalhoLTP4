@@ -5,11 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>login do usuario</title>
+<style >
+#tudo {	
+
+
+	background-image: url(img/img02.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:100% 100%;
+	
+}
+</style>
 </head>
+<body id="tudo" >
 <center>
-
 <form action="../LojaDeCarro/login" method="post" >
-
+<font color="#FFFAFA">
 <h1>Bem vindo!!!</h1>
 	<input type="hidden" name="acao" value="Logar"/>
 	<p><td> Usuario: <input type="text" name="user" /></td>

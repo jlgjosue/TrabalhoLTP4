@@ -27,7 +27,7 @@ public class FiltroSeguranca implements Filter {
 		HttpSession sessao = httpServletRequest.getSession();
 		
 		if(sessao.getAttribute("usuario") != null || url.lastIndexOf("index.jsp") > -1
-				|| url.lastIndexOf("/login") > -1){
+				|| url.lastIndexOf("/login") > -1 || url.lastIndexOf("/img")>-1 ||url.lastIndexOf("img02.jpg")>-1)  {
 			
 			chain.doFilter(request, response);
 			

@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.BO.LoginBO;
 
@@ -13,10 +14,11 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if (req.getParameter("acao") == null ||req.getParameter("acao").equals("Logar") || !req.getParameter("acao").equals("Logar")) {
+		if (req.getSession(false) !=null) {
 			req.getSession().invalidate();
-			resp.sendRedirect("../LojaDeCarro/index.jsp");
 		}
+			resp.sendRedirect("../LojaDeCarro/index.jsp");
+		
 		
 
 	}

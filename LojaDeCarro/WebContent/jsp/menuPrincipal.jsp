@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<style>
+<style >
 a:link, a:visited {
     background-color: #6495ED;
     color: white;
@@ -27,14 +27,21 @@ input[type=button] {
     cursor: pointer;
     border-radius: 25%
 }
-body {
-	color: #6495ED
+#tudo {	
+	background-image: url(img/img01.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:100% 100%;
 }
+body{
+color: #6495ED;
+}
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu principal do sistema</title>
 </head>
-<body>
+<body >
 <center>
 	<u> <h1 ><c:out value="Bem vindo ao sistema ${usuario} !!!" /></h1></u>
 
