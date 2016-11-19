@@ -15,9 +15,9 @@
 	
 	<form action="/LojaDeCarro/carro" method="post">
 		<input type="hidden" name="acao" value="inserir" />
-		Nome: <input type="text" name="nome" required></br>
-		<p>Preço: <input type="number" name="preco" required></br>
-		<p>Fornecedor: <input type="text" name="fornecedor" required></br>
+		Nome: <input type="text" name="nome" required="required"></br>
+		<p>Preço: <input type="number" name="preco" required="required"></br>
+		<p>Fornecedor: <input type="text" name="fornecedor" required="required"></br>
 		<p><input type="submit" value="cadastrar">
 		<input type="reset" value="Limpar">
 

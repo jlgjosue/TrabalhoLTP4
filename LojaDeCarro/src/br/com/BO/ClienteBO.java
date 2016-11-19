@@ -147,6 +147,9 @@ public class ClienteBO {
 			case '.':
 				verficador = true;
 				break;
+			case '0':
+				verficador = true;
+				break;
 			case '-':
 				verficador = true;
 				break;
