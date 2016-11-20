@@ -102,7 +102,7 @@ public class ClienteBO {
 		if(!(cpf.charAt(3)=='.' && cpf.charAt(7)=='.' && cpf.charAt(11)=='-')){
 			return false;
 		}
-		if(cpf.length() - (contPonto + contTraco) <12){
+		if(cpf.length() - (contPonto + contTraco) <11){
 			return false;
 		}	
 		if(!procurarLetar(cpf)){

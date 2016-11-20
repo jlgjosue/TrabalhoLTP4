@@ -14,7 +14,6 @@ import br.com.BO.CarroBO;
 import br.com.Exception.CampoVazioException;
 import br.com.Exception.CarroDeGracaException;
 import br.com.Exception.CarroJaExisteException;
-import br.com.Exception.CarroMuitoCarroException;
 import br.com.Exception.PrecoInvalidoException;
 import br.com.entidade.Carro;
 
@@ -56,18 +55,13 @@ public class CarroServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (CarroDeGracaException e) {
-					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou abaixo de R$ 5.000,00 reais." ;
+					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou abaixo de R$ 00,00 reais." ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (CarroJaExisteException e) {
 					
 					msg = "Erro ao cadastrar um novo carro, não foi posivel pois já exite um carro com o mesmo nome!!" ;
-					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
-					
-				} catch (CarroMuitoCarroException e) {
-					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou acima de R$ 17.000.000,00 reais." ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
@@ -136,14 +130,10 @@ public class CarroServlet extends HttpServlet {
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
 				} catch (CarroDeGracaException e) {
-					msg = "Erro ao alterar o novo carro, não foi posivel pois o seu preço esta igual ou abaixo de R$ 5.000,00 reais." ;
+					msg = "Erro ao alterar o novo carro, não foi posivel pois o seu preço esta igual ou abaixo de R$ 00,00 reais." ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
-				} catch (CarroMuitoCarroException e) {
-					msg = "Erro ao cadastrar um novo carro, não foi posivel pois o seu preço esta igual ou acima de R$ 17.000.000,00 reais." ;
-					req.setAttribute("msg", msg);
-					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
-				}  catch (PrecoInvalidoException e) {
+				} catch (PrecoInvalidoException e) {
 					msg = "Erro ao cadastrar um novo carro, cuidado para não digitar texto ou deixar  campo preço sem preencher, são aceito apenas numeros, nada de ponto ou virgula." ;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);

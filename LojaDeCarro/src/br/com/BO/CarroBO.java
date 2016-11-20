@@ -9,13 +9,12 @@ import br.com.DAO.VendaDAO;
 import br.com.Exception.CampoVazioException;
 import br.com.Exception.CarroDeGracaException;
 import br.com.Exception.CarroJaExisteException;
-import br.com.Exception.CarroMuitoCarroException;
 import br.com.Exception.PrecoInvalidoException;
 import br.com.entidade.Carro;
 
 public class CarroBO {
 	static CarroDAO DAO = new CarroDAO();
-	public boolean cadastro(Carro carro) throws  SQLException, CampoVazioException, CarroDeGracaException, CarroJaExisteException, CarroMuitoCarroException {
+	public boolean cadastro(Carro carro) throws  SQLException, CampoVazioException, CarroDeGracaException, CarroJaExisteException {
 		
 		verificarCarro(carro);
 		
@@ -37,7 +36,7 @@ public class CarroBO {
 		return DAO.consultarPorId(Id);
 	}
 
-	public static void alterarCarro(Carro carro) throws  SQLException, CampoVazioException, CarroDeGracaException, CarroMuitoCarroException {
+	public static void alterarCarro(Carro carro) throws  SQLException, CampoVazioException, CarroDeGracaException  {
 		verificarCarro(carro);
 		DAO.alterarCarro(carro);
 		
@@ -51,18 +50,16 @@ public class CarroBO {
 		return VendaDAO.verificaCarro(id);
 	}
 	
-	private static void verificarCarro(Carro car) throws CampoVazioException, CarroDeGracaException, CarroMuitoCarroException  {
+	private static void verificarCarro(Carro car) throws CampoVazioException, CarroDeGracaException  {
 		
 		
 		if( car.getNome() =="" || car.getFornecedor() ==""){
 			 throw new  CampoVazioException();
 		}
-		if(car.getPreco() <=5000){
+		if(car.getPreco() <=0){
 			throw new CarroDeGracaException();
 		}
-		if(car.getPreco() >= 17000000){
-			throw new CarroMuitoCarroException();
-		}
+		
 		
 		
 	}
