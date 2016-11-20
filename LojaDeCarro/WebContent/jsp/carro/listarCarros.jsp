@@ -12,7 +12,7 @@
 <title>Lista de todos os produtos!</title>
 <link rel="stylesheet"  href="css/Table.css">
 </head>
-
+<body >
 
 <center>
 <c:choose>

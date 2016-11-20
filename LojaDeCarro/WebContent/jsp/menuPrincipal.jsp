@@ -41,7 +41,7 @@ color: #6495ED;
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu principal do sistema</title>
 </head>
-<body >
+<body>
 <center>
 	<u> <h1 ><c:out value="Bem vindo ao sistema ${usuario} !!!" /></h1></u>
 
