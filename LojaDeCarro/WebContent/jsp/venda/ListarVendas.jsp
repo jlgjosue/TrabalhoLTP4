@@ -58,6 +58,7 @@
 	<c:otherwise>
 	<h1> Nao temos nenhuma venda cadastrada no sistema!</h1>
 	<p><input type="button" onclick="location='/LojaDeCarro/venda?acao=Vender'" value="Realizar nova venda"></a><br/>
+	<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	</c:otherwise>
 </c:choose>
 </center>

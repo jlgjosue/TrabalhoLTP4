@@ -43,6 +43,7 @@
 	<c:otherwise>
 	<h1> não exite nenhum cliente cadastrado!</h1>
 	<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
+	<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	</c:otherwise>
 </c:choose>	
  </center>

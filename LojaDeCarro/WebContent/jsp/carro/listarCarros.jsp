@@ -45,8 +45,9 @@
 	 </c:when>
 
 <c:otherwise>
-	<h1>Nenhum carro no sistema!</h1>
+	<h1>Nenhum carro cadastrado no sistema!</h1>
 	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro!"><br/>
+	<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 </c:otherwise>
 </c:choose>
 </center>

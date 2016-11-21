@@ -12,18 +12,19 @@
 	
 
 	<center>
-		<h3><c:out value=" ${usuario} escolha para quem vender, qual carro vender e uma breve descrição da venda!"/></h3>
 	<c:choose>	
 	<c:when test="${clientes.size()<1 and carros.size()>0}">
 	
 	<h1> Não exite nenhum cliente cadastrado!</h1>
 	<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
+	<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	</c:when>
 
 	<c:when test="${clientes.size()>0 and carros.size()<1}">
 	
-	<h1>Nenhum  carro no sistema!</h1>
+	<h1>Nenhum  carro cadastrado no sistema!</h1>
 	<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro"><br/>
+	<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	</c:when>	
 	
 	
@@ -32,11 +33,14 @@
 		<h1>Não temos nenhum produto ou carro cadastrados no sistema!</h1>
 		<P><input type="button" onclick="location='/LojaDeCarro/jsp/cliente/cadastroCliente.jsp'" value="Cadastar novo cliente"><br/>
 		<P><input type="button" onclick="location='/LojaDeCarro/jsp/carro/cadastroCarro.jsp'" value="Cadastar novo carro"><br/>
+		<c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
 	</c:when>
 
 
 	<c:otherwise>
-		<form action="/LojaDeCarro/venda" method="post">
+			<h3><c:out value=" ${usuario} escolha para quem vender, qual carro vender e uma breve descrição da venda!"/></h3><br/>
+	
+		<p><form action="/LojaDeCarro/venda" method="post">
 			<p>	<a> Escolhar um cliente</a>	</p>
 			<input  type="hidden"  name="acao" value="CadastrarVenda"/>
 			<p>	<select name="idCliente">
