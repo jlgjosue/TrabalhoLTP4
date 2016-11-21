@@ -45,7 +45,4 @@
     <url-pattern>/venda</url-pattern>
   </servlet-mapping>
   
-
- 
-  
 </web-app>

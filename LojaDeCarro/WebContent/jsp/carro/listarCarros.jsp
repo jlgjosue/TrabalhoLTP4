@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lista de todos os produtos!</title>
+<title>Lista de todos os carros!</title>
 <link rel="stylesheet"  href="css/Table.css">
 </head>
 <body >
