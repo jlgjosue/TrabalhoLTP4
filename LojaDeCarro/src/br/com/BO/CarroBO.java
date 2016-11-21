@@ -64,7 +64,7 @@ public class CarroBO {
 		
 	}
  private static void carroJaExite(Carro carro) throws CarroJaExisteException{
-	 if(CarroDAO.VerificarCarroExite(carro)){
+	 if(CarroDAO.carroJaExite(carro)){
 		 throw new CarroJaExisteException();
 	 }
  }

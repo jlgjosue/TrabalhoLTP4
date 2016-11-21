@@ -132,7 +132,7 @@ public class ClienteDAO {
 
 	}
 
-	public static boolean verificarCPFIgual(String string) {
+	public static boolean verificarCPFNoBancoCliente(String string) {
 		try {
 			Connection con = Conexao.getConexao();
 			PreparedStatement ps = con.prepareStatement("SELECT COUNT(*)  FROM cliente WHERE cpf  = ? ");

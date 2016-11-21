@@ -129,7 +129,7 @@ public class CarroDAO {
 		}
 
 	}
-	public static boolean VerificarCarroExite(Carro carro) {
+	public static boolean carroJaExite(Carro carro) {
 		
 		try {
 			Connection con = Conexao.getConexao();

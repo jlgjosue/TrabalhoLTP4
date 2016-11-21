@@ -62,12 +62,12 @@ public class ClienteServlet extends HttpServlet {
 					
 				} catch (CPFInvalidoException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, cpf invlido!!";
+					msg = "Erro ao inserir um novo usuario, formato do CPF invlido!!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				} catch (ClienteJaExiteException e) {
 					e.printStackTrace();
-					msg = "Erro ao inserir um novo usuario, já esta cadastrado no banco um outro cliente com o mesmo cpf!!" + e;
+					msg = "Erro ao inserir um novo usuario, já esta cadastrado no banco um outro cliente com o mesmo CPF!!" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 				}
@@ -101,7 +101,7 @@ public class ClienteServlet extends HttpServlet {
 						resp.sendRedirect("/LojaDeCarro/cliente?acao=Listar");
 					}else{
 						
-						msg = "Erro ao excuir o cliente! O cliente só pode ser excluido se a venda em que ele parece também for excluido!!";
+						msg = "Erro ao excuir o cliente! O cliente só pode ser excluido se a(s) venda(s) em que ele parece também for excluido!!";
 						req.setAttribute("msg", msg);
 						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					}
@@ -171,14 +171,11 @@ public class ClienteServlet extends HttpServlet {
 					
 				} catch (CPFInvalidoException e) {
 					e.printStackTrace();
-					msg = "Erro ao alterar o cliente! CPF Invalido!!!" + e;
+					msg = "Erro ao alterar o cliente! O formato do CPF é Invalido!!!" + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
-				} catch (ClienteJaExiteException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
+				}  
 
 			}
 

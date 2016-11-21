@@ -50,7 +50,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (CampoVazioException e) {
 					
 					e.printStackTrace();
-					msg = "Erro ao ao alterar o carro pois o nem todos os campos foram preenchidos!";
+					msg = "Erro ao ao alterar o carro pois nem todos os campos foram preenchidos!";
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					
@@ -81,7 +81,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao listar os carros cadastrados.\n" + e;
+					msg = "Erro ao listar os carros cadastrados." + e;
 					req.setAttribute("msg", msg);
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 
@@ -96,7 +96,7 @@ public class CarroServlet extends HttpServlet {
 				} catch (SQLException e) {
 
 					e.printStackTrace();
-					msg = "Erro ao culsutar o carro que iria se alterado!\n";
+					msg = "Erro ao culsutar o carro que iria se alterado!";
 					req.setAttribute("msg", msg);
 					req.setAttribute("origem", "car");
 					req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
@@ -149,8 +149,7 @@ public class CarroServlet extends HttpServlet {
 					resp.sendRedirect("/LojaDeCarro/carro?acao=Listar");
 					
 					}else{
-						msg = "Erro ao excluir o carro! O "+carro.getNome()+" não pode ser ecluido, pois já venderam para um "
-								+ "cliente este carro, para exclui-lo você tem que excluir a venda deste carro";
+						msg = "Erro ao excluir o carro! O "+carro.getNome()+" não pode ser ecluido, pois já acaonteceu uma venda, para excui-lo você deverar excluir a(s) venda(s) em o carro aparece!";
 						req.setAttribute("msg", msg);
 						req.getRequestDispatcher("jsp/problema.jsp").forward(req, resp);
 					}
